@@ -11,8 +11,8 @@
 const int windowWidth = 800;
 const int windowHeight = 800;
 
-const int jumlahObjek = 5;
-const int jumlahIndices = 2;
+const int jumlahObjek = 6;
+const int jumlahIndices = 3;
 
 void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize ,GLfloat* vboName, GLsizei eboSize,GLuint* eboName)
 {
@@ -166,6 +166,24 @@ int main()
 		-0.5f, -0.5f,  -0.5f,   1.0f, 1.0f, 1.0f 
 	};
 
+	GLfloat taplakMeja[] =
+	{
+		// Koordinat simpul		// Warna
+		// Top face
+		-0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f, //kiri bawah 0
+		 0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f, //kanan bawah 1
+		 0.5f,  0.1001f,  -0.2f,	1.0f, 1.0f, 1.0f, //kanan atas 2
+		-0.5f,  0.1001f,  -0.2f,	1.0f, 1.0f, 1.0f,  //kiri atas 3
+
+		//right face
+		0.50015f, -0.25f, 0.2f,		1.0f, 1.0f, 1.0f,	//kanan bawah depan 4
+		0.50015f, -0.25f, -0.2f,	1.0f, 1.0f, 1.0f,	//kanan bawah belakang 5
+
+		//left face
+		-0.50015f, -0.25f, 0.2f,	1.0f, 1.0f, 1.0f,	//kiri bawah depan 6
+		-0.50015f, -0.25f, -0.2f,	1.0f, 1.0f, 1.0f,	//kiri bawah belakang 7
+	};
+
 	GLuint permukaanMejaIndices[] =
 	{
 		0, 1, 2, 2, 3, 0,		// Front face
@@ -185,16 +203,27 @@ int main()
 		1, 2, 6, 6, 5, 1		// right face
 	};
 
+	GLuint taplakMejaIndices[] =
+	{
+		0, 1, 2, 2, 3, 0,
+		1, 4, 5, 5, 2, 1,
+		0, 6, 7, 7, 3, 0
+	};
+
 	GLuint VAO[jumlahObjek], VBO[jumlahObjek], EBO[jumlahIndices];
 	glGenVertexArrays(jumlahObjek, VAO);
 	glGenBuffers(jumlahObjek, VBO);
 	glGenBuffers(jumlahIndices, EBO);
 
+	//Meja
 	binding(VAO[0], VBO[0], EBO[0], sizeof(permukaanMeja), permukaanMeja, sizeof(permukaanMejaIndices), permukaanMejaIndices);
 	binding(VAO[1], VBO[1], EBO[1], sizeof(kakiKiriMeja), kakiKiriMeja, sizeof(kakiMejaIndices), kakiMejaIndices);
 	binding(VAO[2], VBO[2], EBO[1], sizeof(kakiKananMeja), kakiKananMeja, sizeof(kakiMejaIndices), kakiMejaIndices);
 	binding(VAO[3], VBO[3], EBO[1], sizeof(backKakiKiriMeja), backKakiKiriMeja, sizeof(kakiMejaIndices), kakiMejaIndices);
 	binding(VAO[4], VBO[4], EBO[1], sizeof(backKakiKananMeja), backKakiKananMeja, sizeof(kakiMejaIndices), kakiMejaIndices);
+
+	//Taplak Meja
+	binding(VAO[5], VBO[5], EBO[2], sizeof(taplakMeja), taplakMeja, sizeof(taplakMejaIndices), taplakMejaIndices);
 
 	float rotation = 0.0f;
 	double prevTime = glfwGetTime();
@@ -230,6 +259,7 @@ int main()
 		int projectionLocation = glGetUniformLocation(shaderProgram.ID, "projection");
 		glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(projection));
 
+		//Meja
 		glBindVertexArray(VAO[0]);
 		glDrawElements(GL_TRIANGLES, sizeof(permukaanMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[1]);
@@ -241,13 +271,17 @@ int main()
 		glBindVertexArray(VAO[4]);
 		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
+		//Taplak meja
+		glBindVertexArray(VAO[5]);
+		glDrawElements(GL_TRIANGLES, sizeof(taplakMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
 	glDeleteVertexArrays(jumlahObjek, VAO);
 	glDeleteBuffers(jumlahObjek, VBO);
-	glDeleteBuffers(jumlahObjek, EBO);
+	glDeleteBuffers(jumlahIndices, EBO);
 	shaderProgram.Delete();
 	glfwTerminate();
 	return 0;
