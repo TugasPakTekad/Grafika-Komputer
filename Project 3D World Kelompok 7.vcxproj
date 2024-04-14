@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\Users\MyBook Z Series\source\repos\Project 3D World Kelompok 7\libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Users\MyBook Z Series\source\repos\Project 3D World Kelompok 7\libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\MyBook Z Series\source\repos\Grafika-Komputer\libraries\include;D:\Users\MyBook Z Series\source\repos\Project 3D World Kelompok 7\libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\MyBook Z Series\source\repos\Grafika-Komputer\libraries\lib;D:\Users\MyBook Z Series\source\repos\Project 3D World Kelompok 7\libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Users\MyBook Z Series\source\repos\Project 3D World Kelompok 7\libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Users\MyBook Z Series\source\repos\Project 3D World Kelompok 7\libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\MyBook Z Series\source\repos\Grafika-Komputer\libraries\include;D:\Users\MyBook Z Series\source\repos\Project 3D World Kelompok 7\libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\MyBook Z Series\source\repos\Grafika-Komputer\libraries\lib;D:\Users\MyBook Z Series\source\repos\Project 3D World Kelompok 7\libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
