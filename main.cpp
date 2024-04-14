@@ -11,7 +11,7 @@
 const int windowWidth = 800;
 const int windowHeight = 800;
 
-const int jumlahObjek = 6;
+const int jumlahObjek = 3;
 const int jumlahIndices = 3;
 
 void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize ,GLfloat* vboName, GLsizei eboSize,GLuint* eboName)
@@ -79,10 +79,22 @@ int main()
 		-0.5f, -0.1f,  0.5f,	1.0f, 0.0f, 0.0f, //kiri bawah 12
 		 0.5f, -0.1f,  0.5f,	0.0f, 1.0f, 0.0f, //kanan bawah 13
 		 0.5f, -0.1f, -0.5f,	0.0f, 0.0f, 1.0f, //kanan atas 14
-		-0.5f, -0.1f, -0.5f,	1.0f, 1.0f, 1.0f  //kiri atas 15
+		-0.5f, -0.1f, -0.5f,	1.0f, 1.0f, 1.0f, //kiri atas 15
+
+		//left face
+		-0.5f, -0.1f, -0.5f,	1.0f, 0.0f, 0.0f, //kiri bawah 16
+		-0.5f, -0.1f,  0.5f,	1.0f, 0.0f, 0.0f, //kanan bawah 17
+		-0.5f,  0.1f,  0.5f,	1.0f, 1.0f, 1.0f, //kanan atas 18
+		-0.5f,  0.1f, -0.5f,	1.0f, 1.0f, 1.0f, //kiri atas 19
+
+		//right face
+		0.5f, -0.1f, -0.5f,		1.0f, 0.0f, 0.0f, //kiri bawah 20
+		0.5f, -0.1f,  0.5f,		1.0f, 0.0f, 0.0f, //kanan bawah 21
+		0.5f,  0.1f,  0.5f,		1.0f, 1.0f, 1.0f, //kanan atas 22
+		0.5f,  0.1f, -0.5f,		1.0f, 1.0f, 1.0f //kiri atas 23
 	};
 
-	GLfloat kakiKiriMeja[] =
+	GLfloat kakiMeja[] =
 	{
 		//front face
 		-0.5f, -0.5f,  0.5f,	1.0f, 0.0f, 0.0f,  //0
@@ -100,71 +112,20 @@ int main()
 		-0.5f, -0.5f,  0.5f,	1.0f, 0.0f, 0.0f,  //8
 		-0.3f, -0.5f,  0.5f,	0.0f, 1.0f, 0.0f,  //9
 		-0.3f, -0.5f,  0.3f,	0.0f, 0.0f, 1.0f,  //10
-		-0.5f, -0.5f,  0.3f,	1.0f, 1.0f, 1.0f   //11	
+		-0.5f, -0.5f,  0.3f,	1.0f, 1.0f, 1.0f,  //11
+
+		//left face
+		-0.5f, -0.5f,  0.3f,	1.0f, 0.0f, 0.0f,  //12
+		-0.5f, -0.5f,  0.5f,	0.0f, 1.0f, 0.0f,  //13
+		-0.5f, -0.1f,  0.5f,	0.0f, 0.0f, 1.0f,  //14
+		-0.5f, -0.1f,  0.3f,	1.0f, 1.0f, 1.0f,   //15
+
+		//left face
+		-0.3f, -0.5f,  0.3f,	1.0f, 0.0f, 0.0f,  //16
+		-0.3f, -0.5f,  0.5f,	0.0f, 1.0f, 0.0f,  //17
+		-0.3f, -0.1f,  0.5f,	0.0f, 0.0f, 1.0f,  //18
+		-0.3f, -0.1f,  0.3f,	1.0f, 1.0f, 1.0f   //19
 	};												  
-													  
-	GLfloat kakiKananMeja[] =						  
-	{												  
-		//front face						  
-		0.3f, -0.5f,  0.5f,		1.0f, 0.0f, 0.0f,   
-		0.5f, -0.5f,  0.5f,		0.0f, 1.0f, 0.0f,   
-		0.5f, -0.1f,  0.5f,		0.0f, 0.0f, 1.0f,   
-		0.3f, -0.1f,  0.5f,		1.0f, 1.0f, 1.0f,   
-													  
-		//back face							  
-		0.3f, -0.5f,  0.3f,     1.0f, 0.0f, 0.0f,   
-		0.5f, -0.5f,  0.3f,     0.0f, 1.0f, 0.0f,   
-		0.5f, -0.1f,  0.3f,     0.0f, 0.0f, 1.0f,   
-		0.3f, -0.1f,  0.3f,     1.0f, 1.0f, 1.0f,   
-													  
-		//bottom face						  
-		0.3f, -0.5f,  0.5f,		1.0f, 0.0f, 0.0f,   
-		0.5f, -0.5f,  0.5f,		0.0f, 1.0f, 0.0f,   
-		0.5f, -0.5f,  0.3f,		0.0f, 0.0f, 1.0f,   
-		0.3f, -0.5f,  0.3f,		1.0f, 1.0f, 1.0f   
-	};												  
-													  
-	GLfloat backKakiKananMeja[] =					  
-	{												  
-		//front face							  
-		0.3f, -0.5f,  -0.3f,    1.0f, 0.0f, 0.0f,  
-		0.5f, -0.5f,  -0.3f,    0.0f, 1.0f, 0.0f,  
-		0.5f, -0.1f,  -0.3f,    0.0f, 0.0f, 1.0f,  
-		0.3f, -0.1f,  -0.3f,    1.0f, 1.0f, 1.0f,  
-													  
-		//back face							  
-		0.3f, -0.5f,  -0.5f,    1.0f, 0.0f, 0.0f,  
-		0.5f, -0.5f,  -0.5f,    0.0f, 1.0f, 0.0f,  
-		0.5f, -0.1f,  -0.5f,    0.0f, 0.0f, 1.0f,  
-		0.3f, -0.1f,  -0.5f,    1.0f, 1.0f, 1.0f,  
-													  
-		//bottom face							  
-		0.3f, -0.5f,  -0.3f,    1.0f, 0.0f, 0.0f,  
-		0.5f, -0.5f,  -0.3f,    0.0f, 1.0f, 0.0f,  
-		0.5f, -0.5f,  -0.5f,    0.0f, 0.0f, 1.0f,  
-		0.3f, -0.5f,  -0.5f,    1.0f, 1.0f, 1.0f  
-	};												  
-													  
-	GLfloat backKakiKiriMeja[] =					  
-	{												  
-		//front face							  
-		-0.5f, -0.5f,  -0.3f,   1.0f, 0.0f, 0.0f, 
-		-0.3f, -0.5f,  -0.3f,   0.0f, 1.0f, 0.0f, 
-		-0.3f, -0.1f,  -0.3f,   0.0f, 0.0f, 1.0f, 
-		-0.5f, -0.1f,  -0.3f,   1.0f, 1.0f, 1.0f, 
-													  
-		//back face							  
-		-0.5f, -0.5f,  -0.5f,   1.0f, 0.0f, 0.0f, 
-		-0.3f, -0.5f,  -0.5f,   0.0f, 1.0f, 0.0f, 
-		-0.3f, -0.1f,  -0.5f,   0.0f, 0.0f, 1.0f, 
-		-0.5f, -0.1f,  -0.5f,   1.0f, 1.0f, 1.0f, 
-													  
-		//bottom face						  
-		-0.5f, -0.5f,  -0.3f,   1.0f, 0.0f, 0.0f, 
-		-0.3f, -0.5f,  -0.3f,   0.0f, 1.0f, 0.0f, 
-		-0.3f, -0.5f,  -0.5f,   0.0f, 0.0f, 1.0f, 
-		-0.5f, -0.5f,  -0.5f,   1.0f, 1.0f, 1.0f 
-	};
 
 	GLfloat taplakMeja[] =
 	{
@@ -190,8 +151,8 @@ int main()
 		4, 5, 6, 6, 7, 4,		// Back face
 		8, 9, 10, 10, 11, 8,	// top face
 		12, 13, 14, 14, 15, 12,	// bottom face
-		0, 3, 7, 7, 4, 0,		// left face
-		1, 2, 6, 6, 5, 1		// right face
+		16, 17, 18, 18, 19, 16,// left face
+		20, 21, 22, 22, 23, 20	// right face
 	};
 
 	GLuint kakiMejaIndices[] =
@@ -199,8 +160,8 @@ int main()
 		0, 1, 2, 2, 3, 0,		// Front face
 		4, 5, 6, 6, 7, 4,		// back face
 		8, 9, 10, 10, 11, 8,	// bottom face
-		0, 3, 7, 7, 4, 0,		// left face
-		1, 2, 6, 6, 5, 1		// right face
+		12, 13, 14, 14, 15, 12,		// left face
+		16, 17, 18, 18, 19, 16		// right face
 	};
 
 	GLuint taplakMejaIndices[] =
@@ -217,16 +178,15 @@ int main()
 
 	//Meja
 	binding(VAO[0], VBO[0], EBO[0], sizeof(permukaanMeja), permukaanMeja, sizeof(permukaanMejaIndices), permukaanMejaIndices);
-	binding(VAO[1], VBO[1], EBO[1], sizeof(kakiKiriMeja), kakiKiriMeja, sizeof(kakiMejaIndices), kakiMejaIndices);
-	binding(VAO[2], VBO[2], EBO[1], sizeof(kakiKananMeja), kakiKananMeja, sizeof(kakiMejaIndices), kakiMejaIndices);
-	binding(VAO[3], VBO[3], EBO[1], sizeof(backKakiKiriMeja), backKakiKiriMeja, sizeof(kakiMejaIndices), kakiMejaIndices);
-	binding(VAO[4], VBO[4], EBO[1], sizeof(backKakiKananMeja), backKakiKananMeja, sizeof(kakiMejaIndices), kakiMejaIndices);
+	binding(VAO[1], VBO[1], EBO[1], sizeof(kakiMeja), kakiMeja, sizeof(kakiMejaIndices), kakiMejaIndices);
 
 	//Taplak Meja
-	binding(VAO[5], VBO[5], EBO[2], sizeof(taplakMeja), taplakMeja, sizeof(taplakMejaIndices), taplakMejaIndices);
+	binding(VAO[2], VBO[2], EBO[2], sizeof(taplakMeja), taplakMeja, sizeof(taplakMejaIndices), taplakMejaIndices);
 
 	float rotation = 0.0f;
 	double prevTime = glfwGetTime();
+
+	GLuint translationUniform = glGetUniformLocation(shaderProgram.ID, "translation");
 
 	glEnable(GL_DEPTH_TEST);
 
@@ -259,20 +219,24 @@ int main()
 		int projectionLocation = glGetUniformLocation(shaderProgram.ID, "projection");
 		glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(projection));
 
-		//Meja
+		//permukaan meja
+		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
 		glBindVertexArray(VAO[0]);
 		glDrawElements(GL_TRIANGLES, sizeof(permukaanMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
 		glBindVertexArray(VAO[1]);
-		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices)/sizeof(int), GL_UNSIGNED_INT, 0);
-		glBindVertexArray(VAO[2]);
-		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
-		glBindVertexArray(VAO[3]);
-		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
-		glBindVertexArray(VAO[4]);
-		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices)/sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri meja
+		glUniform3f(translationUniform, 0.8f, 0.0f, 0.0f);
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices)/sizeof(int), GL_UNSIGNED_INT, 0);//kaki kanan meja
+		glUniform3f(translationUniform, 0.8f, 0.0f, -0.8f);
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kanan belakang
+		glUniform3f(translationUniform, 0.0f, 0.0f, -0.8f);
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri belakang
 
 		//Taplak meja
-		glBindVertexArray(VAO[5]);
+		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
+		glBindVertexArray(VAO[2]);
 		glDrawElements(GL_TRIANGLES, sizeof(taplakMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(window);
