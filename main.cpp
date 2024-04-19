@@ -7,6 +7,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include"shaderClass.h"
+#include"camera.h"
 
 const int windowWidth = 800;
 const int windowHeight = 800;
@@ -183,12 +184,11 @@ int main()
 	//Taplak Meja
 	binding(VAO[2], VBO[2], EBO[2], sizeof(taplakMeja), taplakMeja, sizeof(taplakMejaIndices), taplakMejaIndices);
 
-	float rotation = 0.0f;
-	double prevTime = glfwGetTime();
-
 	GLuint translationUniform = glGetUniformLocation(shaderProgram.ID, "translation");
 
 	glEnable(GL_DEPTH_TEST);
+
+	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -197,27 +197,7 @@ int main()
 
 		shaderProgram.Activate();
 
-		glm::mat4 model = glm::mat4(1.0f);
-		glm::mat4 view = glm::mat4(1.0f);
-		glm::mat4 projection = glm::mat4(1.0f);
-
-		double currentTime = glfwGetTime();
-		if (currentTime - prevTime >= 1 / 60)
-		{
-			rotation += 0.01f;
-			prevTime = currentTime;
-		}
-
-		model = glm::rotate(model, glm::radians(rotation), glm::vec3(1.0f, 1.0f, 0.0f));
-		view = glm::translate(view, glm::vec3(0.0f, 0.0f, -2.0f));
-		projection = glm::perspective(glm::radians(45.0f), (float)(windowWidth / windowHeight), 0.1f, 100.0f);
-
-		int modelLocation = glGetUniformLocation(shaderProgram.ID, "model");
-		glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
-		int viewLocation = glGetUniformLocation(shaderProgram.ID, "view");
-		glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(view));
-		int projectionLocation = glGetUniformLocation(shaderProgram.ID, "projection");
-		glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(projection));
+		camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
 		//permukaan meja
 		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
