@@ -12,13 +12,16 @@
 const int windowWidth = 800;
 const int windowHeight = 800;
 
-const int jumlahObjek = 4;
-const int jumlahIndices = 4;
+const int jumlahObjek = 5;
+const int jumlahIndices = 5;
 
 //properti Gelas
 const int jumlahIrisan = 50;
 const float jariJari = 0.1f;
 const float tinggiGelas = 0.2f;
+
+//properti piring
+const float tinggiPiring = 0.05f;
 
 GLfloat permukaanMeja[] =
 {
@@ -111,7 +114,9 @@ GLfloat taplakMeja[] =
 	-0.50015f, -0.25f, -0.2f,	1.0f, 1.0f, 1.0f,	//kiri bawah belakang 7
 };
 
-GLfloat gelas[50 * 6 * 3];
+GLfloat gelas[50 * 6 * 3 + 5];
+
+GLfloat piringBulat[50 * 6 * 3 + 5];
 
 GLuint permukaanMejaIndices[] =
 {
@@ -140,6 +145,8 @@ GLuint taplakMejaIndices[] =
 };
 
 GLuint gelasIndices[50 * 3 * 2 + 50];
+
+GLuint piringBulatIndices[50 * 3 * 2 + 50];
 
 void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize ,GLfloat* vboName, GLsizei eboSize,GLuint* eboName)
 {
@@ -186,6 +193,7 @@ int main()
 		float x = jariJari * cos(i * sudut);
 		float z = jariJari * sin(i * sudut);
 
+		//gelas
 		// Bottom vertex
 		gelas[i * 6 * 2] = x / 2;
 		gelas[i * 6 * 2 + 1] = -tinggiGelas / 2.0f;
@@ -206,13 +214,39 @@ int main()
 		gelas[i * 6 * 2 + 6] = x;
 		gelas[i * 6 * 2 + 7] = tinggiGelas / 2.0f;
 		gelas[i * 6 * 2 + 8] = z;
-		gelas[i * 6 * 2 + 9] = 1.0f; // Red color
-		gelas[i * 6 * 2 + 10] = 0.0f; // Green color
+		gelas[i * 6 * 2 + 9] = 0.0f; // Red color
+		gelas[i * 6 * 2 + 10] = 1.0f; // Green color
 		gelas[i * 6 * 2 + 11] = 0.0f; // Blue color
+
+		//piring
+		// Bottom vertex
+		piringBulat[i * 6 * 2] = x / 2;
+		piringBulat[i * 6 * 2 + 1] = -tinggiPiring / 2.0f;
+		piringBulat[i * 6 * 2 + 2] = z / 2;
+		piringBulat[i * 6 * 2 + 3] = 1.0f; // Red color
+		piringBulat[i * 6 * 2 + 4] = 0.0f; // Green color
+		piringBulat[i * 6 * 2 + 5] = 0.0f; // Blue color
+
+		//alas piring
+		piringBulat[i * 6 + 600] = x / 2;
+		piringBulat[i * 6 + 601] = -tinggiPiring / 2.0f;
+		piringBulat[i * 6 + 602] = z / 2;
+		piringBulat[i * 6 + 603] = 0.4f; // Red color
+		piringBulat[i * 6 + 604] = 0.2f; // Green color
+		piringBulat[i * 6 + 605] = 0.5f; // Blue color
+
+		//top vertex
+		piringBulat[i * 6 * 2 + 6] = x;
+		piringBulat[i * 6 * 2 + 7] = tinggiPiring / 2.0f;
+		piringBulat[i * 6 * 2 + 8] = z;
+		piringBulat[i * 6 * 2 + 9] = 0.0f; // Red color
+		piringBulat[i * 6 * 2 + 10] = 1.0f; // Green color
+		piringBulat[i * 6 * 2 + 11] = 0.0f; // Blue color
 	}
 
 	for (int i = 0; i < jumlahIrisan; ++i) {
-		// sisi gelas indices
+		//gelas
+		// sisi
 		gelasIndices[i * 6] = i * 2;
 		gelasIndices[i * 6 + 1] = (i + 1) * 2;
 		gelasIndices[i * 6 + 2] = (i + 1) * 2 + 1;
@@ -221,8 +255,21 @@ int main()
 		gelasIndices[i * 6 + 4] = i * 2 + 1;
 		gelasIndices[i * 6 + 5] = i * 2;
 
-		// alas gelas indices
+		// alas
 		gelasIndices[i + 300] = i * 2;
+
+		//piring
+		// sisi
+		piringBulatIndices[i * 6] = i * 2;
+		piringBulatIndices[i * 6 + 1] = (i + 1) * 2;
+		piringBulatIndices[i * 6 + 2] = (i + 1) * 2 + 1;
+
+		piringBulatIndices[i * 6 + 3] = (i + 1) * 2 + 1;
+		piringBulatIndices[i * 6 + 4] = i * 2 + 1;
+		piringBulatIndices[i * 6 + 5] = i * 2;
+
+		// alas
+		piringBulatIndices[i + 300] = i * 2;
 	}
 
 	GLuint VAO[jumlahObjek], VBO[jumlahObjek], EBO[jumlahIndices];
@@ -240,6 +287,10 @@ int main()
 	//gelas
 	binding(VAO[3], VBO[3], EBO[3], sizeof(gelas), gelas, sizeof(gelasIndices), gelasIndices);
 
+	//piringBulat
+	binding(VAO[4], VBO[4], EBO[4], sizeof(piringBulat), piringBulat, sizeof(piringBulatIndices), piringBulatIndices);
+
+	GLuint scaleUniform = glGetUniformLocation(shaderProgram.ID, "scale");
 	GLuint translationUniform = glGetUniformLocation(shaderProgram.ID, "translation");
 
 	glEnable(GL_DEPTH_TEST);
@@ -257,6 +308,7 @@ int main()
 		camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
 		//permukaan meja
+		glUniform1f(scaleUniform, 0.0f);
 		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
 		glBindVertexArray(VAO[0]);
 		glDrawElements(GL_TRIANGLES, sizeof(permukaanMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
@@ -277,9 +329,16 @@ int main()
 		glDrawElements(GL_TRIANGLES, sizeof(taplakMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		//gelas
-		glUniform3f(translationUniform, 0.0f, 0.2001f, -0.3f);
+		glUniform1f(scaleUniform, -0.5f);
+		glUniform3f(translationUniform, 0.0f, 0.15001f, -0.3f);
 		glBindVertexArray(VAO[3]);
-		glDrawElements(GL_TRIANGLE_FAN, sizeof(gelas) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLE_FAN, sizeof(gelasIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//piringBulat
+		glUniform1f(scaleUniform, 0.0f);
+		glUniform3f(translationUniform, -0.4f, 0.126f, 0.0f);
+		glBindVertexArray(VAO[4]);
+		glDrawElements(GL_TRIANGLE_FAN, sizeof(piringBulatIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
