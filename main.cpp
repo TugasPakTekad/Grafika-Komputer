@@ -12,16 +12,21 @@
 const int windowWidth = 800;
 const int windowHeight = 800;
 
-const int jumlahObjek = 5;
-const int jumlahIndices = 5;
+const int jumlahObjek = 7;
+const int jumlahIndices = 7;
 
 //properti Gelas
 const int jumlahIrisan = 50;
 const float jariJari = 0.1f;
 const float tinggiGelas = 0.2f;
+const float PI = 3.14159265359;
 
 //properti piring
 const float tinggiPiring = 0.05f;
+
+//properti sendok
+const int latDivs = 18;
+const int lonDivs = 36;
 
 GLfloat permukaanMeja[] =
 {
@@ -118,6 +123,21 @@ GLfloat gelas[50 * 6 * 3 + 5];
 
 GLfloat piringBulat[50 * 6 * 3 + 5];
 
+GLfloat sendok[(latDivs + 1) * (lonDivs + 1) * 8 + 8];
+
+GLfloat gagangSendok[] =
+{
+	0.47f, 0.0f, -0.15f, 1.0f, 0.0f, 0.0f,
+	1.5f, 0.0f, -0.15f, 0.0f, 1.0f, 0.0f,
+	1.5f, 0.0f, 0.15f, 0.0f, 0.0f, 1.0f,
+	0.47f, 0.0f, 0.15f, 1.0f, 1.0f, 1.0f,
+
+	0.43f, 0.1f, -0.15f, 1.0f, 0.0f, 0.0f,
+	1.5f, 0.1f, -0.15f, 0.0f, 1.0f, 0.0f,
+	1.5f, 0.1f, 0.15f, 0.0f, 0.0f, 1.0f,
+	0.43f, 0.1f, 0.15f, 1.0f, 1.0f, 1.0f,
+};
+
 GLuint permukaanMejaIndices[] =
 {
 	0, 1, 2, 2, 3, 0,		// Front face
@@ -147,6 +167,18 @@ GLuint taplakMejaIndices[] =
 GLuint gelasIndices[50 * 3 * 2 + 50];
 
 GLuint piringBulatIndices[50 * 3 * 2 + 50];
+
+GLuint sendokIndices[18 * 36 * 6];
+
+GLuint gagangIndices[] =
+{
+	0, 1, 2, 2, 3, 0,
+	0, 4, 1, 1, 4, 5,
+	5, 1, 2, 2, 5, 6,
+	6, 2, 3, 3, 6, 7,
+	7, 3, 0, 0, 7, 4,
+	4, 7, 6, 6, 4, 5
+};
 
 void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize ,GLfloat* vboName, GLsizei eboSize,GLuint* eboName)
 {
@@ -189,7 +221,7 @@ int main()
 	Shader shaderProgram("default.vert", "default.frag");
 
 	for (int i = 0; i <= jumlahIrisan; ++i) {
-		float sudut = 2 * 3.14159265359 / jumlahIrisan;
+		float sudut = 2 * PI / jumlahIrisan;
 		float x = jariJari * cos(i * sudut);
 		float z = jariJari * sin(i * sudut);
 
@@ -272,6 +304,56 @@ int main()
 		piringBulatIndices[i + 300] = i * 2;
 	}
 
+	int vertexIndex = 0;
+	int indexIndex = 0;
+	float radiusX = 0.5f; // X-axis radius
+	float radiusY = 0.3f; // Y-axis radius
+	float radiusZ = 0.4f; // Z-axis radius
+	for (int lat = 0; lat <= latDivs / 2; lat++) {
+		float phi = PI * (float)lat / (float)latDivs;
+		for (int lon = 0; lon <= lonDivs; lon++) {
+			float theta = 2 * PI * (float)lon / (float)lonDivs;
+
+			float x = radiusX * sinf(phi) * cosf(theta);
+			float y = radiusY * cosf(phi);
+			float z = radiusZ * sinf(phi) * sinf(theta);
+
+			// Position (replace with actual calculations)
+			sendok[vertexIndex++] = x;
+			sendok[vertexIndex++] = y;
+			sendok[vertexIndex++] = z;
+
+			// Color (this is an example; use your actual color values)
+			sendok[vertexIndex++] = 1.0f; // Red
+			sendok[vertexIndex++] = 0.5f; // Green
+			sendok[vertexIndex++] = 0.0f; // Blue
+
+			// Calculate indices for the quad's two triangles
+			if (lat < latDivs / 2 && lon < lonDivs) {
+				int nextLat = lonDivs + 1;
+				sendokIndices[indexIndex++] = lat * nextLat + lon;
+				sendokIndices[indexIndex++] = (lat + 1) * nextLat + lon;
+				sendokIndices[indexIndex++] = lat * nextLat + lon + 1;
+
+				sendokIndices[indexIndex++] = lat * nextLat + lon + 1;
+				sendokIndices[indexIndex++] = (lat + 1) * nextLat + lon;
+				sendokIndices[indexIndex++] = (lat + 1) * nextLat + lon + 1;
+			}
+		}
+	}
+
+	// Define indices for handle (a simple rectangle)
+	for (int i = 0; i < 4; i++) {
+		int j = (i + 1) % 4;
+		sendokIndices[indexIndex++] = latDivs * (lonDivs + 1) + i;
+		sendokIndices[indexIndex++] = latDivs * (lonDivs + 1) + j;
+		sendokIndices[indexIndex++] = latDivs * (lonDivs + 1) + j + 4;
+
+		sendokIndices[indexIndex++] = latDivs * (lonDivs + 1) + j + 4;
+		sendokIndices[indexIndex++] = latDivs * (lonDivs + 1) + i + 4;
+		sendokIndices[indexIndex++] = latDivs * (lonDivs + 1) + i;
+	}
+
 	GLuint VAO[jumlahObjek], VBO[jumlahObjek], EBO[jumlahIndices];
 	glGenVertexArrays(jumlahObjek, VAO);
 	glGenBuffers(jumlahObjek, VBO);
@@ -290,8 +372,13 @@ int main()
 	//piringBulat
 	binding(VAO[4], VBO[4], EBO[4], sizeof(piringBulat), piringBulat, sizeof(piringBulatIndices), piringBulatIndices);
 
+	//sendok
+	binding(VAO[5], VBO[5], EBO[5], sizeof(sendok), sendok, sizeof(sendokIndices), sendokIndices);
+	binding(VAO[6], VBO[6], EBO[6], sizeof(gagangSendok), gagangSendok, sizeof(gagangIndices), gagangIndices);
+
 	GLuint scaleUniform = glGetUniformLocation(shaderProgram.ID, "scale");
 	GLuint translationUniform = glGetUniformLocation(shaderProgram.ID, "translation");
+	GLuint rotationUniform = glGetUniformLocation(shaderProgram.ID, "rotation");
 
 	glEnable(GL_DEPTH_TEST);
 
@@ -307,10 +394,14 @@ int main()
 		camera.Inputs(window);
 		camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
+		glm::mat4 noRotation = glm::mat4(1.0f);
+		glm::mat4 rotationMatrix;
+
 		//permukaan meja
 		glUniform1f(scaleUniform, 0.0f);
 		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
-		glBindVertexArray(VAO[0]);
+		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(noRotation));
+		/**glBindVertexArray(VAO[0]);
 		glDrawElements(GL_TRIANGLES, sizeof(permukaanMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
@@ -338,7 +429,13 @@ int main()
 		glUniform1f(scaleUniform, 0.0f);
 		glUniform3f(translationUniform, -0.4f, 0.126f, 0.0f);
 		glBindVertexArray(VAO[4]);
-		glDrawElements(GL_TRIANGLE_FAN, sizeof(piringBulatIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLE_FAN, sizeof(piringBulatIndices) / sizeof(int), GL_UNSIGNED_INT, 0);*/
+
+		//sendok;
+		glBindVertexArray(VAO[5]);
+		glDrawElements(GL_TRIANGLES, sizeof(sendokIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[6]);
+		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();

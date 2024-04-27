@@ -9,9 +9,14 @@ uniform mat4 camMatrix;
 
 uniform float scale;
 uniform vec3 translation;
+uniform mat4 rotation;
 
 void main()
 {
-   gl_Position = camMatrix * vec4(position + position * scale + translation, 1.0);
+   vec4 pos = vec4(position + position * scale, 1.0);
+   pos = rotation * pos; // Apply rotation
+   pos = pos + vec4(translation, 0.0); // Apply translation
+
+   gl_Position = camMatrix * pos;
    color = aColor;
 }
