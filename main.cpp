@@ -127,15 +127,41 @@ GLfloat sendok[(latDivs + 1) * (lonDivs + 1) * 8 + 8];
 
 GLfloat gagangSendok[] =
 {
-	0.47f, 0.0f, -0.15f, 1.0f, 0.0f, 0.0f,
-	1.5f, 0.0f, -0.15f, 0.0f, 1.0f, 0.0f,
-	1.5f, 0.0f, 0.15f, 0.0f, 0.0f, 1.0f,
-	0.47f, 0.0f, 0.15f, 1.0f, 1.0f, 1.0f,
+	//bottom
+	0.47f,	0.0f,	0.15f, 1.0f, 0.0f, 0.0f,
+	1.8f,	0.0f,	0.15f, 0.0f, 1.0f, 0.0f,
+	1.8f,	0.0f,	-0.15f,	0.0f, 0.0f, 1.0f,
+	0.47f,	0.0f,	-0.15f,	1.0f, 1.0f, 1.0f,
 
-	0.43f, 0.1f, -0.15f, 1.0f, 0.0f, 0.0f,
-	1.5f, 0.1f, -0.15f, 0.0f, 1.0f, 0.0f,
-	1.5f, 0.1f, 0.15f, 0.0f, 0.0f, 1.0f,
-	0.43f, 0.1f, 0.15f, 1.0f, 1.0f, 1.0f,
+	//top
+	0.43f,	0.1f,	0.15f, 1.0f, 0.0f, 0.0f,
+	1.8f,	0.1f,	0.15f, 0.0f, 1.0f, 0.0f,
+	1.8f,	0.1f,	-0.15f,	0.0f, 0.0f, 1.0f,
+	0.43f,	0.1f,	-0.15f,	1.0f, 1.0f, 1.0f,
+
+	//left side
+	0.47f,	0.0f,	0.15f, 1.0f, 0.0f, 0.0f,
+	1.8f,	0.0f,	0.15f, 0.0f, 1.0f, 0.0f,
+	1.8f,	0.1f,	0.15f, 0.0f, 1.0f, 0.0f,
+	0.43f,	0.1f,	0.15f, 1.0f, 0.0f, 0.0f,
+
+	//right side
+	0.47f,	0.0f,	-0.15f, 1.0f, 0.0f, 0.0f,
+	1.8f,	0.0f,	-0.15f, 0.0f, 1.0f, 0.0f,
+	1.8f,	0.1f,	-0.15f, 0.0f, 1.0f, 0.0f,
+	0.43f,	0.1f,	-0.15f, 1.0f, 0.0f, 0.0f,
+
+	//front side
+	1.8f,	0.0f,	0.15f, 0.0f, 1.0f, 0.0f,
+	1.8f,	0.0f,	-0.15f,	0.0f, 0.0f, 1.0f,
+	1.8f,	0.1f,	0.15f, 0.0f, 1.0f, 0.0f,
+	1.8f,	0.1f,	-0.15f,	0.0f, 0.0f, 1.0f,
+
+	//back side
+	0.47f,	0.0f,	0.15f, 1.0f, 0.0f, 0.0f,
+	0.47f,	0.0f,	-0.15f,	1.0f, 1.0f, 1.0f,
+	0.43f,	0.1f,	0.15f, 1.0f, 0.0f, 0.0f,
+	0.43f,	0.1f,	-0.15f,	1.0f, 1.0f, 1.0f
 };
 
 GLuint permukaanMejaIndices[] =
@@ -173,11 +199,11 @@ GLuint sendokIndices[18 * 36 * 6];
 GLuint gagangIndices[] =
 {
 	0, 1, 2, 2, 3, 0,
-	0, 4, 1, 1, 4, 5,
-	5, 1, 2, 2, 5, 6,
-	6, 2, 3, 3, 6, 7,
-	7, 3, 0, 0, 7, 4,
-	4, 7, 6, 6, 4, 5
+	8, 11, 9, 9, 10, 11,
+	22, 20, 21, 21, 22, 23,
+	15, 14, 12, 12, 13, 14,
+	19, 17, 16, 16, 18, 19,
+	6, 5, 4, 4, 7, 6
 };
 
 void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize ,GLfloat* vboName, GLsizei eboSize,GLuint* eboName)
@@ -401,7 +427,7 @@ int main()
 		glUniform1f(scaleUniform, 0.0f);
 		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
 		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(noRotation));
-		/**glBindVertexArray(VAO[0]);
+		glBindVertexArray(VAO[0]);
 		glDrawElements(GL_TRIANGLES, sizeof(permukaanMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
@@ -429,9 +455,13 @@ int main()
 		glUniform1f(scaleUniform, 0.0f);
 		glUniform3f(translationUniform, -0.4f, 0.126f, 0.0f);
 		glBindVertexArray(VAO[4]);
-		glDrawElements(GL_TRIANGLE_FAN, sizeof(piringBulatIndices) / sizeof(int), GL_UNSIGNED_INT, 0);*/
+		glDrawElements(GL_TRIANGLE_FAN, sizeof(piringBulatIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		//sendok;
+		glUniform1f(scaleUniform, -0.95f);
+		glUniform3f(translationUniform, -0.4f, 0.1f, 0.15f);
+		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
 		glBindVertexArray(VAO[5]);
 		glDrawElements(GL_TRIANGLES, sizeof(sendokIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[6]);
