@@ -12,8 +12,8 @@
 const int windowWidth = 800;
 const int windowHeight = 800;
 
-const int jumlahObjek = 7;
-const int jumlahIndices = 7;
+const int jumlahObjek = 9; //7;
+const int jumlahIndices = 9; //7;
 
 //properti Gelas
 const int jumlahIrisan = 50;
@@ -164,6 +164,93 @@ GLfloat gagangSendok[] =
 	0.43f,	0.1f,	-0.15f,	1.0f, 1.0f, 1.0f
 };
 
+GLfloat garpu[] =
+{
+	// Atas
+	-0.4f,	0.1f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 0
+	0.0f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 1
+	0.2f,	0.1f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 2
+	-0.4f,	0.1f,	-0.2f,	0.0f, 1.0f, 0.0f,	// 3
+	-0.4f,	0.1f,	-0.1f, 1.0f, 0.0f, 0.0f,	// 4
+	0.0f,	0.1f,	-0.1f,	0.0f, 1.0f, 0.0f,	// 5
+	-0.4f,	0.1f,	0.1f, 1.0f, 0.0f, 0.0f,		// 6
+	0.0f,	0.1f,	0.1f,	0.0f, 1.0f, 0.0f,	// 7
+	-0.4f,	0.1f,	0.4f, 1.0f, 0.0f, 0.0f,		// 8
+	0.0f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	// 9
+	0.2f,	0.1f,	0.4f, 1.0f, 0.0f, 0.0f,		// 10
+	-0.4f,	0.1f,	0.2f,	0.0f, 1.0f, 0.0f,	// 11
+	0.4f,	0.1f,	0.2f,	1.0f, 1.0f, 1.0f,	// 12
+	0.4f,	0.1f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 13
+
+	// Bawah
+	-0.4f,	0.0f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 14
+	0.0f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 15
+	0.2f,	0.0f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 16
+	-0.4f,	0.0f,	-0.2f,	0.0f, 1.0f, 0.0f,	// 17
+	-0.4f,	0.0f,	-0.1f, 1.0f, 0.0f, 0.0f,	// 18
+	0.0f,	0.0f,	-0.1f,	0.0f, 1.0f, 0.0f,	// 19
+	-0.4f,	0.0f,	0.1f, 1.0f, 0.0f, 0.0f,		// 20
+	0.0f,	0.0f,	0.1f,	0.0f, 1.0f, 0.0f,	// 21
+	-0.4f,	0.0f,	0.4f, 1.0f, 0.0f, 0.0f,		// 22
+	0.0f,	0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	// 23
+	0.2f,	0.0f,	0.4f, 1.0f, 0.0f, 0.0f,		// 24
+	-0.4f,	0.0f,	0.2f,	0.0f, 1.0f, 0.0f,	// 25
+	0.4f,	0.0f,	0.2f,	1.0f, 1.0f, 1.0f,	// 26
+	0.4f,	0.0f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 27
+
+	// Kanan
+	
+
+	// Kiri
+
+
+	// Depan
+
+
+	// Belakang
+
+
+};
+
+GLfloat gagangGarpu[] =
+{
+	// Atas
+	0.4f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 0
+	0.4f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 1
+	1.8f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 2
+	1.8f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 3
+
+	// kanan
+	0.4f,	0.1f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 4
+	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 5
+	1.8f,	0.1f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 6
+	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 7
+
+	// kiri
+	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 8
+	0.4f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	// 9
+	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 10
+	1.8f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	// 11
+
+	// depan
+	0.4f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 12
+	0.4f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 13
+	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 14
+	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 15
+	
+	// belakang
+	1.8f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 16
+	1.8f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 17
+	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 18
+	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 19
+
+	// Bawah
+	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 20
+	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 21
+	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 22
+	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 23
+};
+
 GLuint permukaanMejaIndices[] =
 {
 	0, 1, 2, 2, 3, 0,		// Front face
@@ -204,6 +291,38 @@ GLuint gagangIndices[] =
 	15, 14, 12, 12, 13, 14,
 	19, 17, 16, 16, 18, 19,
 	6, 5, 4, 4, 7, 6
+};
+
+GLuint garpuindices[] =
+{
+	0, 1, 2, 3, 1, 0, 4, 5, 6, 6, 7, 5,
+	8, 11, 9, 8, 9, 10, 7, 10, 9, 7, 12, 10,
+	5, 12, 7, 13, 5, 12, 2, 5, 13, 1, 2, 5,		// atas
+
+	14, 15, 16, 17, 15, 14, 18, 19, 20, 20, 21, 19,
+	22, 25, 23, 22, 23, 24, 21, 24, 23, 21, 26, 24,
+	19, 26, 21, 27, 19, 26, 16, 19, 27, 15, 16, 19,		// bawah
+
+	8, 22, 10, 10, 24, 22, 10, 24, 12, 12, 26, 24,
+	6, 20, 7, 7, 21, 20, 3, 17, 1, 1, 15, 17,		// kanan
+
+	2, 16, 0, 0, 14, 16, 13, 27, 2, 2, 16, 27,
+	5, 19, 4, 4, 18, 19, 9, 23, 11, 11, 25, 23,		// kiri
+
+	0, 14, 3, 3, 17, 14, 4, 18, 6, 6, 20, 18, 11, 25, 8, 8, 22, 25,
+	1, 15, 5, 5, 19, 15, 7, 21, 9, 9, 23, 21,		// depan
+
+	12, 26, 13, 13, 27, 26		// belakang
+};
+
+GLuint gagangGarpuindices[] =
+{
+	0, 1, 2, 2, 3, 1,		// atas
+	4, 5, 6, 6, 7, 5,		// kanan
+	8, 9, 10, 10, 11, 9,	// kiri
+	12, 13, 14, 14, 15, 13,	// depan
+	16, 17, 18, 18, 19, 17,	// belakang
+	20, 21, 22, 22, 23, 21,	// bawah
 };
 
 void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize ,GLfloat* vboName, GLsizei eboSize,GLuint* eboName)
@@ -402,6 +521,10 @@ int main()
 	binding(VAO[5], VBO[5], EBO[5], sizeof(sendok), sendok, sizeof(sendokIndices), sendokIndices);
 	binding(VAO[6], VBO[6], EBO[6], sizeof(gagangSendok), gagangSendok, sizeof(gagangIndices), gagangIndices);
 
+	//garpu
+	binding(VAO[7], VBO[7], EBO[7], sizeof(garpu), garpu, sizeof(garpuindices), garpuindices);
+	binding(VAO[8], VBO[8], EBO[8], sizeof(gagangGarpu), gagangGarpu, sizeof(gagangGarpuindices), gagangGarpuindices);
+
 	GLuint scaleUniform = glGetUniformLocation(shaderProgram.ID, "scale");
 	GLuint translationUniform = glGetUniformLocation(shaderProgram.ID, "translation");
 	GLuint rotationUniform = glGetUniformLocation(shaderProgram.ID, "rotation");
@@ -466,6 +589,16 @@ int main()
 		glDrawElements(GL_TRIANGLES, sizeof(sendokIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[6]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//Garpu
+		glUniform1f(scaleUniform, -0.95f);
+		glUniform3f(translationUniform, -0.4f, 0.1f, -0.15f);
+		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
+		glBindVertexArray(VAO[7]);
+		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[8]);
+		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
