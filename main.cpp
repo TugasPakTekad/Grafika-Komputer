@@ -593,14 +593,14 @@ int main()
 		glDrawElements(GL_TRIANGLES, sizeof(permukaanMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		//kaki meja
-		glUniform3f(translationUniform, 0.1f, 0.15f, -0.1f);
+		glUniform3f(translationUniform, 0.05f, 0.15f, -0.05f);
 		glBindVertexArray(VAO[1]);
 		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices)/sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri meja
-		glUniform3f(translationUniform, 0.9f, 0.15f, -0.1f);
+		glUniform3f(translationUniform, 0.9f, 0.15f, -0.05f);
 		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices)/sizeof(int), GL_UNSIGNED_INT, 0);//kaki kanan meja
 		glUniform3f(translationUniform, 0.9f, 0.15f, -0.9f);
 		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kanan belakang
-		glUniform3f(translationUniform, 0.1f, 0.15f, -0.9f);
+		glUniform3f(translationUniform, 0.05f, 0.15f, -0.9f);
 		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri belakang
 
 		//Taplak meja
