@@ -141,6 +141,8 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="shaderClass.cpp" />
+    <ClCompile Include="stb.cpp" />
+    <ClCompile Include="texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="default.frag" />
@@ -149,6 +151,14 @@
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="shaderClass.h" />
+    <ClInclude Include="texture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="kaki_meja.jpg" />
+    <Image Include="permukaan_meja.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="License free.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
