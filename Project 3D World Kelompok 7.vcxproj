@@ -154,8 +154,13 @@
     <ClInclude Include="texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="gelas.jpeg" />
+    <Image Include="gelas.jpg" />
     <Image Include="kaki_meja.jpg" />
     <Image Include="permukaan_meja.jpg" />
+    <Image Include="piring.jpg" />
+    <Image Include="sendok.jpg" />
+    <Image Include="taplak_meja.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="License free.txt" />

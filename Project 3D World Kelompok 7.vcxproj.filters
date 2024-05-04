@@ -66,6 +66,21 @@
     <Image Include="kaki_meja.jpg">
       <Filter>Resource Files\Textures</Filter>
     </Image>
+    <Image Include="taplak_meja.jpg">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="gelas.jpeg">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="gelas.jpg">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="piring.jpg">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="sendok.jpg">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="License free.txt">
