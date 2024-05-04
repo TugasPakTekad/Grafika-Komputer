@@ -13,8 +13,8 @@
 const int windowWidth = 800;
 const int windowHeight = 800;
 
-const int jumlahObjek = 13;
-const int jumlahIndices = 13; 
+const int jumlahObjek = 14;
+const int jumlahIndices = 14; 
 
 //properti Gelas
 const int jumlahIrisan = 50;
@@ -206,19 +206,6 @@ GLfloat garpu[] =
 	-0.4f,	0.0f,	0.2f,	0.0f, 1.0f, 0.0f,	// 25
 	0.4f,	0.0f,	0.2f,	1.0f, 1.0f, 1.0f,	// 26
 	0.4f,	0.0f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 27
-
-	// Kanan
-	
-
-	// Kiri
-
-
-	// Depan
-
-
-	// Belakang
-
-
 };
 
 GLfloat gagangGarpu[] =
@@ -260,6 +247,21 @@ GLfloat gagangGarpu[] =
 	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 23
 };
 
+GLfloat piringKotak[] =
+{
+	//Bawah
+	-0.6f,	0.0f,	0.6f,	1.0f, 0.0f, 0.0f,	// 0
+	0.6f,	0.0f,	0.6f,	1.0f, 0.0f, 0.0f,	// 1
+	0.6f,	0.0f,	-0.6f,	1.0f, 0.0f, 0.0f,	// 2
+	-0.6f,	0.0f,	-0.6f,	1.0f, 0.0f, 0.0f,	// 3
+	
+	// Atas
+	-1.6f,	0.7f,	1.6f,	0.0f, 0.0f, 1.0f,	// 4
+	1.6f,	0.7f,	1.6f,	0.0f, 1.0f, 0.0f,	// 5
+	1.6f,	0.7f,	-1.6f,	0.0f, 0.0f, 1.0f,	// 6
+	-1.6f,	0.7f,	-1.6f,	0.0f, 1.0f, 0.0f,	// 7
+};
+
 GLuint permukaanMejaIndices[] =
 {
 	0, 1, 2, 2, 3, 0,		// Front face
@@ -288,7 +290,7 @@ GLuint taplakMejaIndices[] =
 
 GLuint gelasIndices[jumlahIrisan * 3 * 2];
 
-GLuint alasGelasIndices[jumlahIrisan ];
+GLuint alasGelasIndices[jumlahIrisan];
 
 GLuint piringBulatIndices[jumlahIrisan * 3 * 2];
 
@@ -340,6 +342,15 @@ GLuint gagangGarpuindices[] =
 	12, 13, 14, 14, 15, 13,	// depan
 	16, 17, 18, 18, 19, 17,	// belakang
 	20, 21, 22, 22, 23, 21,	// bawah
+};
+
+GLuint piringKotakindices[] =
+{
+	0, 1, 3, 3, 2, 1,
+	1, 0, 4, 4, 5, 1,
+	2, 1, 5, 5, 6, 2,
+	3, 2, 6, 6, 7, 3,
+	0, 3, 7, 7, 4, 0,
 };
 
 void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize ,GLfloat* vboName, GLsizei eboSize,GLuint* eboName)
@@ -479,7 +490,7 @@ int main()
 		piringOval[i * 8 * 2 + 15] = 1.0f; // Texture coordinate v
 	}
 
-	for (int i = 0; i < jumlahIrisan; ++i) {
+	for (int i = 0; i < jumlahIrisan; i++) {
 		//gelas
 		// sisi
 		gelasIndices[i * 6] = i * 2;
@@ -602,7 +613,9 @@ int main()
 	binding(VAO[9], VBO[9], EBO[9], sizeof(piringOval), piringOval, sizeof(piringOvalIndices), piringOvalIndices);
 	binding(VAO[12], VBO[12], EBO[12], sizeof(alasPiringOval), alasPiringOval, sizeof(alasPiringOvalIndices), alasPiringOvalIndices);
 	
-
+  //piringKotak
+	//binding(VAO[13], VBO[13], EBO[13], sizeof(piringKotak), piringKotak, sizeof(piringKotakindices), piringKotakindices);
+  
 	//texture
 	texture permukaanMejaTex("permukaan_meja.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
 	permukaanMejaTex.textureUnit(shaderProgram, "tex0", 0);
@@ -725,6 +738,15 @@ int main()
 		glDrawElements(GL_TRIANGLES, sizeof(sendokIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[6]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+    
+    //sendok3
+		glUniform3f(translationUniform, 0.4f, 0.1f, -0.15f);
+		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
+		glBindVertexArray(VAO[5]);
+		glDrawElements(GL_TRIANGLES, sizeof(sendokIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[6]);
+		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		/*/Garpu
 		glUniform3f(translationUniform, -0.4f, 0.1f, -0.15f);
@@ -738,8 +760,20 @@ int main()
 		glBindVertexArray(VAO[7]);
 		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[8]);
-		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);*/
+		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		
+		//piringKotak
+		glUniform3f(translationUniform, 0.4f, 0.1005f, 0.0f);
+		glBindVertexArray(VAO[10]);
+		glDrawElements(GL_TRIANGLES, sizeof(piringKotakindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//Garpu3
+		glUniform3f(translationUniform, 0.4f, 0.1f, 0.15f);
+		glBindVertexArray(VAO[7]);
+		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[8]);
+		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);*/
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
