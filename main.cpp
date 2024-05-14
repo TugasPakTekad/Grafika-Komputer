@@ -31,42 +31,42 @@ const int lonDivs = 36;
 
 GLfloat permukaanMeja[] =
 {
-	// Koordinat simpul		// Warna		//Texture kordinat
+	// Koordinat simpul		// Warna		//Texture kordinat	//Normals
 	// Front face
-	-0.5f, 0.05f,  0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,//kiri bawah 0
-	 0.5f, 0.05f,  0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,//kanan bawah 1
-	 0.5f, 0.1f,  0.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,//kanan atas 2
-	-0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,//kiri atas 3
+	-0.5f, 0.05f,  0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.5f, 0.0f, 0.6f,//kiri bawah 0
+	 0.5f, 0.05f,  0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	 0.5f, 0.0f, 0.6f,//kanan bawah 1
+	 0.5f, 0.1f,  0.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	 0.5f, 0.0f, 0.6f,//kanan atas 2
+	-0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	-0.5f, 0.0f, 0.6f,//kiri atas 3
 
 	// Back face
-	-0.5f, 0.05f, -0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,//kiri bawah 4
-	 0.5f, 0.05f, -0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,//kanan bawah 5
-	 0.5f, 0.1f, -0.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,//kanan atas 6
-	-0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,//kiri atas 7
+	-0.5f, 0.05f, -0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.5f, 0.0f, -0.6f,//kiri bawah 4
+	 0.5f, 0.05f, -0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	 0.5f, 0.0f, -0.6f,//kanan bawah 5
+	 0.5f, 0.1f, -0.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	 0.5f, 0.0f, -0.6f,//kanan atas 6
+	-0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	-0.5f, 0.0f, -0.6f,//kiri atas 7
 
 	// Top face
-	-0.5f,  0.1f,  0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,//kiri bawah 8
-	 0.5f,  0.1f,  0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,//kanan bawah 9
-	 0.5f,  0.1f, -0.5f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,//kanan atas 10
-	-0.5f,  0.1f, -0.5f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,//kiri atas 11
+	-0.5f,  0.1f,  0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	0.0f, 0.2f, 0.0f,//kiri bawah 8
+	 0.5f,  0.1f,  0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	0.0f, 0.2f, 0.0f,//kanan bawah 9
+	 0.5f,  0.1f, -0.5f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	0.0f, 0.2f, 0.0f,//kanan atas 10
+	-0.5f,  0.1f, -0.5f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	0.0f, 0.2f, 0.0f,//kiri atas 11
 
 	// Bottom face
-	-0.5f, 0.05f,  0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,//kiri bawah 12
-	 0.5f, 0.05f,  0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,//kanan bawah 13
-	 0.5f, 0.05f, -0.5f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,//kanan atas 14
-	-0.5f, 0.05f, -0.5f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,//kiri atas 15
+	-0.5f, 0.05f,  0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	0.0f, -0.05f, 0.0f,//kiri bawah 12
+	 0.5f, 0.05f,  0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	0.0f, -0.05f, 0.0f,//kanan bawah 13
+	 0.5f, 0.05f, -0.5f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	0.0f, -0.05f, 0.0f,//kanan atas 14
+	-0.5f, 0.05f, -0.5f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	0.0f, -0.05f, 0.0f,//kiri atas 15
 
 	//left face
-	-0.5f, 0.05f, -0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,//kiri bawah 16
-	-0.5f, 0.05f,  0.5f,	1.0f, 0.0f, 0.0f, 1.0f, 0.0f,//kanan bawah 17
-	-0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 1.0f, 1.0f,//kanan atas 18
-	-0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,//kiri atas 19
+	-0.5f, 0.05f, -0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.6f, 0.0f, -0.5f,//kiri bawah 16
+	-0.5f, 0.05f,  0.5f,	1.0f, 0.0f, 0.0f, 1.0f, 0.0f,	-0.6f, 0.0f, 0.5f,//kanan bawah 17
+	-0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 1.0f, 1.0f,	-0.6f, 0.0f, 0.5f,//kanan atas 18
+	-0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	-0.6f, 0.0f, -0.5f,//kiri atas 19
 
 	//right face
-	0.5f, 0.05f, -0.5f,		1.0f, 0.0f, 0.0f, 0.0f, 0.0f,//kiri bawah 20
-	0.5f, 0.05f,  0.5f,		1.0f, 0.0f, 0.0f, 1.0f, 0.0f,//kanan bawah 21
-	0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 1.0f, 1.0f,//kanan atas 22
-	0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f //kiri atas 23
+	0.5f, 0.05f, -0.5f,		1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	0.6f, 0.0f, -0.5f,//kiri bawah 20
+	0.5f, 0.05f,  0.5f,		1.0f, 0.0f, 0.0f, 1.0f, 0.0f,	0.6f, 0.0f, 0.5f,//kanan bawah 21
+	0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 1.0f, 1.0f,	0.6f, 0.0f, 0.5f,//kanan atas 22
+	0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	0.6f, 0.0f, -0.5f//kiri atas 23
 };
 
 GLfloat kakiMeja[] =
@@ -262,6 +262,19 @@ GLfloat piringKotak[] =
 	-1.6f,	0.7f,	-1.6f,	0.0f, 1.0f, 0.0f,	// 7
 };
 
+GLfloat lampu[] =
+{
+	-0.1f,	0.3f,	0.1f,
+	0.1f,	0.3f,	0.1f,
+	0.1f,	0.5f,	0.1f,
+	-0.1f,	0.5f,	0.1f,
+
+	-0.1f,	0.3f,	-0.1f,
+	0.1f,	0.3f,	-0.1f,
+	0.1f,	0.5f,	-0.1f,
+	-0.1f,	0.5f,	-0.1f
+};
+
 GLuint permukaanMejaIndices[] =
 {
 	0, 1, 2, 2, 3, 0,		// Front face
@@ -353,6 +366,16 @@ GLuint piringKotakindices[] =
 	0, 3, 7, 7, 4, 0,
 };
 
+GLuint lampuIndices[] =
+{
+	0, 1, 2, 2, 3, 0,
+	4, 5, 6, 6, 7, 4,
+	1, 5, 6, 6, 2, 1,
+	4, 0, 3, 3, 7, 4,
+	0, 1, 5, 5, 4, 0,
+	3, 2, 6, 6, 7, 3
+};
+
 void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize ,GLfloat* vboName, GLsizei eboSize,GLuint* eboName)
 {
 	glBindVertexArray(VAO);
@@ -361,12 +384,14 @@ void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize ,GLfloat* vb
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, eboSize, eboName, GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(6 * sizeof(float)));
 	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(8 * sizeof(float)));
+	glEnableVertexAttribArray(3);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
@@ -615,7 +640,42 @@ int main()
 	
   //piringKotak
 	//binding(VAO[13], VBO[13], EBO[13], sizeof(piringKotak), piringKotak, sizeof(piringKotakindices), piringKotakindices);
-  
+
+	Shader lightShader("light.vert", "light.frag");
+	GLuint lightVAO, lightVBO, lightEBO;
+
+	glGenVertexArrays(1, &lightVAO);
+	glGenBuffers(1, &lightVBO);
+	glGenBuffers(1, &lightEBO);
+
+	glBindVertexArray(lightVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, lightVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(lampu), lampu, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, lightEBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(lampuIndices), lampuIndices, GL_STATIC_DRAW);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+	
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+
+	glm::vec3 lightPos = glm::vec3(0.0f, 0.45f, 0.0f);
+	glm::mat4 lightModel = glm::mat4(1.0f);
+	lightModel = glm::translate(lightModel, lightPos);
+
+	lightShader.Activate();
+	glUniformMatrix4fv(glGetUniformLocation(lightShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(lightModel));
+	glUniform4f(glGetUniformLocation(lightShader.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
+	
+	shaderProgram.Activate();
+	glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
+	glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
+
 	//texture
 	texture permukaanMejaTex("permukaan_meja.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
 	permukaanMejaTex.textureUnit(shaderProgram, "tex0", 0);
@@ -663,7 +723,8 @@ int main()
 		shaderProgram.Activate();
 
 		camera.Inputs(window);
-		camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
+		camera.updateMatrix(45.0f, 0.1f, 100.0f);
+		camera.Matrix(shaderProgram, "camMatrix");
 
 		glm::mat4 noRotation = glm::mat4(1.0f);
 		glm::mat4 rotationMatrix = glm::mat4(1.0f);
@@ -676,7 +737,7 @@ int main()
 		glBindVertexArray(VAO[0]);
 		glDrawElements(GL_TRIANGLES, sizeof(permukaanMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
-		//kaki meja
+		/*/kaki meja
 		kakiMejaTex.Bind();
 		glUniform3f(translationUniform, 0.05f, 0.15f, -0.05f);
 		glBindVertexArray(VAO[1]);
@@ -748,7 +809,7 @@ int main()
 		glBindVertexArray(VAO[6]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
-		/*/Garpu
+		//Garpu
 		glUniform3f(translationUniform, -0.4f, 0.1f, -0.15f);
 		glBindVertexArray(VAO[7]);
 		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
@@ -774,6 +835,11 @@ int main()
 		glBindVertexArray(VAO[8]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);*/
 
+		lightShader.Activate();
+		camera.Matrix(lightShader, "camMatrix");
+		glBindVertexArray(lightVAO);
+		glDrawElements(GL_TRIANGLES, sizeof(lampuIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
@@ -781,6 +847,9 @@ int main()
 	glDeleteVertexArrays(jumlahObjek, VAO);
 	glDeleteBuffers(jumlahObjek, VBO);
 	glDeleteBuffers(jumlahIndices, EBO);
+	glDeleteVertexArrays(1, &lightVAO);
+	glDeleteBuffers(1, &lightVBO);
+	glDeleteBuffers(1, &lightEBO);
 	permukaanMejaTex.Delete();
 	kakiMejaTex.Delete();
 	taplakMejaTex.Delete();
