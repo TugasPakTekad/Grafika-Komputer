@@ -153,6 +153,8 @@
     <None Include="light.vert" />
     <None Include="shadowMap.frag" />
     <None Include="shadowMap.vert" />
+    <None Include="shadowScene.frag" />
+    <None Include="shadowScene.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
