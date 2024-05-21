@@ -106,71 +106,75 @@ GLfloat taplakMeja[] =
 {
 	// Koordinat simpul		// Warna
 	// Top face
-	-0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f,//kiri bawah 0
-	 0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 1.0f,//kanan bawah 1
-	 0.5f,  0.1001f,  -0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f,//kanan atas 2
-	-0.5f,  0.1001f,  -0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 1.0f,//kiri atas 3
+	-0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f,	0.0f, 0.2f, 0.0f,//kiri bawah 0
+	 0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 1.0f,	0.0f, 0.2f, 0.0f,//kanan bawah 1
+	 0.5f,  0.1001f,  -0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f,	0.0f, 0.2f, 0.0f,//kanan atas 2
+	-0.5f,  0.1001f,  -0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 1.0f,	0.0f, 0.2f, 0.0f,//kiri atas 3
 
 	//right face
-	0.50015f, -0.25f, 0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f,//kanan bawah depan 4
-	0.50015f, -0.25f, -0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 0.0f,//kanan bawah belakang 5
+	0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 1.0f,	0.5f, -0.1f, 0.0f, //kanan atas depan 4
+	0.50015f, -0.25f, 0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f,	0.5f, -0.1f, 0.0f,//kanan bawah depan 5
+	0.50015f, -0.25f, -0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 0.0f,	0.5f, -0.1f, 0.0f,//kanan bawah belakang 6
+	0.5f,  0.1001f,  -0.2f,		1.0f, 1.0f, 1.0f,	1.0f, 1.0f,	0.5f, -0.1f, 0.0f, //kanan atas belakang 7
 
 	//left face
-	-0.50015f, -0.25f, 0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 0.0f,//kiri bawah depan 6
-	-0.50015f, -0.25f, -0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f//kiri bawah belakang 7
+	-0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f,	-0.5f, -0.1f, 0.0f,//kiri atas depan 8
+	-0.50015f, -0.25f, 0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 0.0f,	-0.5f, -0.1f, 0.0f,//kiri bawah depan 9
+	-0.50015f, -0.25f, -0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f,	-0.5f, -0.1f, 0.0f,//kiri bawah belakang 10
+	-0.5f,  0.1001f,  -0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 1.0f,	-0.5f, -0.1f, 0.0f//kiri atas belakang 11
 };
 
 GLfloat gelas[jumlahIrisan * 8 * 3];
 
-GLfloat alasGelas[jumlahIrisan * 8 + 7];
+GLfloat alasGelas[jumlahIrisan * 8 * 2];
 
 GLfloat piringBulat[jumlahIrisan * 8 * 3];
 
-GLfloat alasPiringBulat[jumlahIrisan * 8 + 7];
+GLfloat alasPiringBulat[jumlahIrisan * 8 * 2];
 
 GLfloat piringOval[jumlahIrisan * 8 * 3];
 
-GLfloat alasPiringOval[jumlahIrisan * 8 + 7];
+GLfloat alasPiringOval[jumlahIrisan * 8 * 3];
 
-GLfloat sendok[(latDivs + 1) * (lonDivs + 1) * 8 + 8];
+GLfloat sendok[(latDivs + 1) * (lonDivs + 1) * 8 * 3];
 
 GLfloat gagangSendok[] =
 {
 	//bottom
-	0.47f,0.0f,	0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-	1.8f, 0.0f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-	1.8f, 0.0f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-	0.47f,0.0f,	-0.15f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+	0.47f,0.0f,	0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.05f, -0.1f, 0.0f,
+	1.8f, 0.0f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	-0.05f, -0.1f, 0.0f,
+	1.8f, 0.0f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	-0.05f, -0.1f, 0.0f,
+	0.47f,0.0f,	-0.15f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	-0.05f, -0.1f, 0.0f,
 
 	//top
-	0.43f,0.1f,	0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-	1.8f, 0.1f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-	1.8f, 0.1f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-	0.43f,0.1f,	-0.15f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+	0.43f,0.1f,	0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.1f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.1f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
+	0.43f,0.1f,	-0.15f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
 
 	//left side
-	0.47f,0.0f,	0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-	1.8f, 0.0f,	0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-	1.8f, 0.1f,	0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-	0.43f,0.1f,	0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+	0.47f,0.0f,	0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.0f,	0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.1f,	0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
+	0.43f,0.1f,	0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
 
 	//right side
-	0.47f,0.0f,	-0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-	1.8f, 0.0f,	-0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-	1.8f, 0.1f,	-0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-	0.43f,0.1f,	-0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+	0.47f,0.0f,	-0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.0f,	-0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.1f,	-0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
+	0.43f,0.1f,	-0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
 
 	//front side
-	1.8f, 0.0f,	0.15f,	0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-	1.8f, 0.0f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 0.0f,
-	1.8f, 0.1f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-	1.8f, 0.1f,	-0.15f,	0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+	1.8f, 0.0f,	0.15f,	0.0f, 1.0f, 0.0f, 0.0f, 0.0f,	1.9f, 0.05f, 0.0f,
+	1.8f, 0.0f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 0.0f,	1.9f, 0.05f, 0.0f,
+	1.8f, 0.1f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 1.0f,	1.9f, 0.05f, 0.0f,
+	1.8f, 0.1f,	-0.15f,	0.0f, 0.0f, 1.0f, 0.0f, 1.0f,	1.9f, 0.05f, 0.0f,
 
 	//back side
-	0.47f, 0.0f, 0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-	0.47f, 0.0f, -0.15f,1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-	0.43f, 0.1f, 0.15f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
-	0.43f, 0.1f, -0.15f,1.0f, 1.0f, 1.0f, 0.0f, 1.0f
+	0.47f, 0.0f, 0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	0.6f, 0.05f, 0.0f,
+	0.47f, 0.0f, -0.15f,1.0f, 1.0f, 1.0f, 1.0f, 0.0f,	0.6f, 0.05f, 0.0f,
+	0.43f, 0.1f, 0.15f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,	0.6f, 0.05f, 0.0f,
+	0.43f, 0.1f, -0.15f,1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	0.6f, 0.05f, 0.0f
 };
 
 GLfloat garpu[] =
@@ -297,8 +301,8 @@ GLuint kakiMejaIndices[] =
 GLuint taplakMejaIndices[] =
 {
 	0, 1, 2, 2, 3, 0,
-	1, 4, 5, 5, 2, 1,
-	0, 6, 7, 7, 3, 0
+	4, 5, 6, 6, 7, 4,
+	8, 9, 10, 10, 11, 8
 };
 
 GLuint gelasIndices[jumlahIrisan * 3 * 2];
@@ -427,92 +431,119 @@ int main()
 
 		//gelas
 		// Bottom vertex
-		gelas[i * 8 * 2] = x / 2;
-		gelas[i * 8 * 2 + 1] = -tinggiGelas / 2.0f;
-		gelas[i * 8 * 2 + 2] = z / 2;
-		gelas[i * 8 * 2 + 3] = 1.0f; // Red color
-		gelas[i * 8 * 2 + 4] = 0.0f; // Green color
-		gelas[i * 8 * 2 + 5] = 0.0f; // Blue color
-		gelas[i * 8 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		gelas[i * 8 * 2 + 7] = 0.0f; // Texture coordinate v
+		gelas[i * 11 * 2] = x / 2;
+		gelas[i * 11 * 2 + 1] = -tinggiGelas / 2.0f;
+		gelas[i * 11 * 2 + 2] = z / 2;
+		gelas[i * 11 * 2 + 3] = 1.0f; // Red color
+		gelas[i * 11 * 2 + 4] = 0.0f; // Green color
+		gelas[i * 11 * 2 + 5] = 0.0f; // Blue color
+		gelas[i * 11 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		gelas[i * 11 * 2 + 7] = 0.0f; // Texture coordinate v
+		gelas[i * 11 * 2 + 8] = 0.0f; // normal x
+		gelas[i * 11 * 2 + 9] = 0.0f; // normal y
+		gelas[i * 11 * 2 + 10] = 0.0f; // normal z
 
 		//alas vertex
-		alasGelas[i * 8] = x / 2;
-		alasGelas[i * 8 + 1] = -tinggiGelas / 2.0f;
-		alasGelas[i * 8 + 2] = z / 2;
-		alasGelas[i * 8 + 3] = 0.4f; // Red color
-		alasGelas[i * 8 + 4] = 0.2f; // Green color
-		alasGelas[i * 8 + 5] = 0.5f; // Blue color
-		alasGelas[i * 8 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
-		alasGelas[i * 8 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
+		alasGelas[i * 11] = x / 2;
+		alasGelas[i * 11 + 1] = -tinggiGelas / 2.0f;
+		alasGelas[i * 11 + 2] = z / 2;
+		alasGelas[i * 11 + 3] = 0.4f; // Red color
+		alasGelas[i * 11 + 4] = 0.2f; // Green color
+		alasGelas[i * 11 + 5] = 0.5f; // Blue color
+		alasGelas[i * 11 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
+		alasGelas[i * 11 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
+		alasGelas[i * 11 + 8] = 0.0f;
+		alasGelas[i * 11 + 9] = 0.2f;
+		alasGelas[i * 11 + 10] = 0.0f;
 		
 		// Top vertex
-		gelas[i * 8 * 2 + 8] = x;
-		gelas[i * 8 * 2 + 9] = tinggiGelas / 2.0f;
-		gelas[i * 8 * 2 + 10] = z;
-		gelas[i * 8 * 2 + 11] = 0.0f; // Red color
-		gelas[i * 8 * 2 + 12] = 1.0f; // Green color
-		gelas[i * 8 * 2 + 13] = 0.0f; // Blue color
-		gelas[i * 8 * 2 + 14] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		gelas[i * 8 * 2 + 15] = 1.0f; // Texture coordinate v
+		gelas[i * 11 * 2 + 11] = x;
+		gelas[i * 11 * 2 + 12] = tinggiGelas / 2.0f;
+		gelas[i * 11 * 2 + 13] = z;
+		gelas[i * 11 * 2 + 14] = 0.0f; // Red color
+		gelas[i * 11 * 2 + 15] = 1.0f; // Green color
+		gelas[i * 11 * 2 + 16] = 0.0f; // Blue color
+		gelas[i * 11 * 2 + 17] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		gelas[i * 11 * 2 + 18] = 1.0f; // Texture coordinate v
+		gelas[i * 11 * 2 + 19] = 0.0f; // normal x
+		gelas[i * 11 * 2 + 20] = 0.2f; // normal y
+		gelas[i * 11 * 2 + 21] = 0.0f; // normal z
 
 		//piring
 		// Bottom vertex
-		piringBulat[i * 8 * 2] = x / 2;
-		piringBulat[i * 8 * 2 + 1] = -tinggiPiring / 2.0f;
-		piringBulat[i * 8 * 2 + 2] = z / 2;
-		piringBulat[i * 8 * 2 + 3] = 1.0f; // Red color
-		piringBulat[i * 8 * 2 + 4] = 0.0f; // Green color
-		piringBulat[i * 8 * 2 + 5] = 0.0f; // Blue color
-		piringBulat[i * 8 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		piringBulat[i * 8 * 2 + 7] = 0.0f; // Texture coordinate v
+		piringBulat[i * 11 * 2] = x / 2;
+		piringBulat[i * 11 * 2 + 1] = -tinggiPiring / 2.0f;
+		piringBulat[i * 11 * 2 + 2] = z / 2;
+		piringBulat[i * 11 * 2 + 3] = 1.0f; // Red color
+		piringBulat[i * 11 * 2 + 4] = 0.0f; // Green color
+		piringBulat[i * 11 * 2 + 5] = 0.0f; // Blue color
+		piringBulat[i * 11 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		piringBulat[i * 11 * 2 + 7] = 0.0f; // Texture coordinate v
+		piringBulat[i * 11 * 2 + 8] = 0.0f; // normal x
+		piringBulat[i * 11 * 2 + 9] = 0.0f; // normal y
+		piringBulat[i * 11 * 2 + 10] = 0.0f; // normal z
 
-		piringOval[i * 8 * 2] = x / 2;
-		piringOval[i * 8 * 2 + 1] = -tinggiPiring / 2.0f;
-		piringOval[i * 8 * 2 + 2] = z / 2;
-		piringOval[i * 8 * 2 + 3] = 1.0f; // Red color
-		piringOval[i * 8 * 2 + 4] = 0.0f; // Green color
-		piringOval[i * 8 * 2 + 5] = 0.0f; // Blue color
-		piringOval[i * 8 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		piringOval[i * 8 * 2 + 7] = 0.0f; // Texture coordinate v
+		piringOval[i * 11 * 2] = x / 2;
+		piringOval[i * 11 * 2 + 1] = -tinggiPiring / 2.0f;
+		piringOval[i * 11 * 2 + 2] = z / 2;
+		piringOval[i * 11 * 2 + 3] = 1.0f; // Red color
+		piringOval[i * 11 * 2 + 4] = 0.0f; // Green color
+		piringOval[i * 11 * 2 + 5] = 0.0f; // Blue color
+		piringOval[i * 11 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		piringOval[i * 11 * 2 + 7] = 0.0f; // Texture coordinate v
+		piringOval[i * 11 * 2 + 8] = 0.0f; // normal x
+		piringOval[i * 11 * 2 + 9] = 0.0f; // normal y
+		piringOval[i * 11 * 2 + 10] = 0.0f; // normal z
 
 		//alas piring
-		alasPiringBulat[i * 8] = x / 2;
-		alasPiringBulat[i * 8 + 1] = -tinggiPiring / 2.0f;
-		alasPiringBulat[i * 8 + 2] = z / 2;
-		alasPiringBulat[i * 8 + 3] = 0.4f; // Red color
-		alasPiringBulat[i * 8 + 4] = 0.2f; // Green color
-		alasPiringBulat[i * 8 + 5] = 0.5f; // Blue color
-		alasPiringBulat[i * 8 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
-		alasPiringBulat[i * 8 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
+		alasPiringBulat[i * 11] = x / 2;
+		alasPiringBulat[i * 11 + 1] = -tinggiPiring / 2.0f;
+		alasPiringBulat[i * 11 + 2] = z / 2;
+		alasPiringBulat[i * 11 + 3] = 0.4f; // Red color
+		alasPiringBulat[i * 11 + 4] = 0.2f; // Green color
+		alasPiringBulat[i * 11 + 5] = 0.5f; // Blue color
+		alasPiringBulat[i * 11 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
+		alasPiringBulat[i * 11 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
+		alasPiringBulat[i * 11 + 8] = 0.0f;
+		alasPiringBulat[i * 11 + 9] = 0.2f;
+		alasPiringBulat[i * 11 + 10] = 0.0f;
 		
-		alasPiringOval[i * 8] = x / 2;
-		alasPiringOval[i * 8 + 1] = -tinggiPiring / 2.0f;
-		alasPiringOval[i * 8 + 2] = z / 2;
-		alasPiringOval[i * 8 + 3] = 0.4f; // Red color
-		alasPiringOval[i * 8 + 4] = 0.2f; // Green color
-		alasPiringOval[i * 8 + 5] = 0.5f; // Blue color
-		alasPiringOval[i * 8 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
-		alasPiringOval[i * 8 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
+		alasPiringOval[i * 11] = x / 2;
+		alasPiringOval[i * 11 + 1] = -tinggiPiring / 2.0f;
+		alasPiringOval[i * 11 + 2] = z / 2;
+		alasPiringOval[i * 11 + 3] = 0.4f; // Red color
+		alasPiringOval[i * 11 + 4] = 0.2f; // Green color
+		alasPiringOval[i * 11 + 5] = 0.5f; // Blue color
+		alasPiringOval[i * 11 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
+		alasPiringOval[i * 11 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
+		alasPiringOval[i * 11 + 8] = 0.0f;
+		alasPiringOval[i * 11 + 9] = 0.2f;
+		alasPiringOval[i * 11 + 10] = 0.0f;
 
 		//top vertex
-		piringBulat[i * 8 * 2 + 8] = x;
-		piringBulat[i * 8 * 2 + 9] = tinggiPiring / 2.0f;
-		piringBulat[i * 8 * 2 + 10] = z;
-		piringBulat[i * 8 * 2 + 11] = 0.0f; // Red color
-		piringBulat[i * 8 * 2 + 12] = 1.0f; // Green color
-		piringBulat[i * 8 * 2 + 13] = 0.0f; // Blue color
-		piringBulat[i * 8 * 2 + 14] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		piringBulat[i * 8 * 2 + 15] = 1.0f; // Texture coordinate v
+		piringBulat[i * 11 * 2 + 11] = x;
+		piringBulat[i * 11 * 2 + 12] = tinggiPiring / 2.0f;
+		piringBulat[i * 11 * 2 + 13] = z;
+		piringBulat[i * 11 * 2 + 14] = 0.0f; // Red color
+		piringBulat[i * 11 * 2 + 15] = 1.0f; // Green color
+		piringBulat[i * 11 * 2 + 16] = 0.0f; // Blue color
+		piringBulat[i * 11 * 2 + 17] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		piringBulat[i * 11 * 2 + 18] = 1.0f; // Texture coordinate v
+		piringBulat[i * 11 * 2 + 19] = 0.0f; // normal x
+		piringBulat[i * 11 * 2 + 20] = 0.2f; // normal y
+		piringBulat[i * 11 * 2 + 21] = 0.0f; // normal z
 
-		piringOval[i * 8 * 2 + 8] = x;
-		piringOval[i * 8 * 2 + 9] = tinggiPiring / 2.0f;
-		piringOval[i * 8 * 2 + 10] = z / 1.3f;
-		piringOval[i * 8 * 2 + 11] = 0.0f; // Red color
-		piringOval[i * 8 * 2 + 12] = 1.0f; // Green color
-		piringOval[i * 8 * 2 + 13] = 0.0f; // Blue color
-		piringOval[i * 8 * 2 + 14] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		piringOval[i * 8 * 2 + 15] = 1.0f; // Texture coordinate v
+		piringOval[i * 11 * 2 + 11] = x;
+		piringOval[i * 11 * 2 + 12] = tinggiPiring / 2.0f;
+		piringOval[i * 11 * 2 + 13] = z / 1.3f;
+		piringOval[i * 11 * 2 + 14] = 0.0f; // Red color
+		piringOval[i * 11 * 2 + 15] = 1.0f; // Green color
+		piringOval[i * 11 * 2 + 16] = 0.0f; // Blue color
+		piringOval[i * 11 * 2 + 17] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		piringOval[i * 11 * 2 + 18] = 1.0f; // Texture coordinate v
+		piringOval[i * 11 * 2 + 19] = 0.0f; // normal x
+		piringOval[i * 11 * 2 + 20] = 0.2f; // normal y
+		piringOval[i * 11 * 2 + 21] = 0.0f; // normal z
 	}
 
 	for (int i = 0; i < jumlahIrisan; i++) {
@@ -577,8 +608,14 @@ int main()
 			sendok[vertexIndex++] = 0.5f; // Green
 			sendok[vertexIndex++] = 0.0f; // Blue
 
+			//texture
 			sendok[vertexIndex++] = theta / (2.0f * PI);
 			sendok[vertexIndex++] = 1.0f - (phi / PI);
+
+			//normal
+			sendok[vertexIndex++] = 0.0f;
+			sendok[vertexIndex++] = 0.2f;
+			sendok[vertexIndex++] = 0.0f;
 
 			// Calculate indices for the quad's two triangles
 			if (lat < latDivs / 2 && lon < lonDivs) {
@@ -638,7 +675,7 @@ int main()
 	binding(VAO[9], VBO[9], EBO[9], sizeof(piringOval), piringOval, sizeof(piringOvalIndices), piringOvalIndices);
 	binding(VAO[12], VBO[12], EBO[12], sizeof(alasPiringOval), alasPiringOval, sizeof(alasPiringOvalIndices), alasPiringOvalIndices);
 	
-  //piringKotak
+	//piringKotak
 	//binding(VAO[13], VBO[13], EBO[13], sizeof(piringKotak), piringKotak, sizeof(piringKotakindices), piringKotakindices);
 
 	Shader lightShader("light.vert", "light.frag");
@@ -749,7 +786,7 @@ int main()
 		glUniform3f(translationUniform, 0.05f, 0.15f, -0.9f);
 		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri belakang
 
-		/*/Taplak meja
+		//Taplak meja
 		taplakMejaTex.Bind();
 		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
 		glBindVertexArray(VAO[2]);
@@ -800,7 +837,7 @@ int main()
 		glBindVertexArray(VAO[6]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
     
-    //sendok3
+		//sendok3
 		glUniform3f(translationUniform, 0.4f, 0.1f, -0.15f);
 		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
@@ -809,7 +846,7 @@ int main()
 		glBindVertexArray(VAO[6]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
-		//Garpu
+		/*/Garpu
 		glUniform3f(translationUniform, -0.4f, 0.1f, -0.15f);
 		glBindVertexArray(VAO[7]);
 		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
