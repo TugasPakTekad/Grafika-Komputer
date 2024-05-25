@@ -176,90 +176,90 @@ GLfloat gagangSendok[] =
 GLfloat garpu[] =
 {
 	// Atas
-	-0.4f,	0.1f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 0
-	0.0f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 1
-	0.2f,	0.1f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 2
-	-0.4f,	0.1f,	-0.2f,	0.0f, 1.0f, 0.0f,	// 3
-	-0.4f,	0.1f,	-0.1f, 1.0f, 0.0f, 0.0f,	// 4
-	0.0f,	0.1f,	-0.1f,	0.0f, 1.0f, 0.0f,	// 5
-	-0.4f,	0.1f,	0.1f, 1.0f, 0.0f, 0.0f,		// 6
-	0.0f,	0.1f,	0.1f,	0.0f, 1.0f, 0.0f,	// 7
-	-0.4f,	0.1f,	0.4f, 1.0f, 0.0f, 0.0f,		// 8
-	0.0f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	// 9
-	0.2f,	0.1f,	0.4f, 1.0f, 0.0f, 0.0f,		// 10
-	-0.4f,	0.1f,	0.2f,	0.0f, 1.0f, 0.0f,	// 11
-	0.4f,	0.1f,	0.2f,	1.0f, 1.0f, 1.0f,	// 12
-	0.4f,	0.1f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 13
+	-0.4f,	0.1f,	-0.4f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, // 0
+	0.0f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, // 1
+	0.2f,	0.1f,	-0.4f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, // 2
+	-0.4f,	0.1f,	-0.2f,	0.0f, 1.0f, 0.0f,	0.0f, 0.0f, // 3
+	-0.4f,	0.1f,	-0.1f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, // 4
+	0.0f,	0.1f,	-0.1f,	0.0f, 1.0f, 0.0f,	1.0f, 1.0f, // 5
+	-0.4f,	0.1f,	0.1f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, // 6
+	0.0f,	0.1f,	0.1f,	0.0f, 1.0f, 0.0f,	0.0f, 0.0f, // 7
+	-0.4f,	0.1f,	0.4f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, // 8
+	0.0f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, // 9
+	0.2f,	0.1f,	0.4f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, // 10
+	-0.4f,	0.1f,	0.2f,	0.0f, 1.0f, 0.0f,	1.0f, 1.0f, // 11
+	0.4f,	0.1f,	0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 0.0f, // 12
+	0.4f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, // 13
 
 	// Bawah
-	-0.4f,	0.0f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 14
-	0.0f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 15
-	0.2f,	0.0f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 16
-	-0.4f,	0.0f,	-0.2f,	0.0f, 1.0f, 0.0f,	// 17
-	-0.4f,	0.0f,	-0.1f, 1.0f, 0.0f, 0.0f,	// 18
-	0.0f,	0.0f,	-0.1f,	0.0f, 1.0f, 0.0f,	// 19
-	-0.4f,	0.0f,	0.1f, 1.0f, 0.0f, 0.0f,		// 20
-	0.0f,	0.0f,	0.1f,	0.0f, 1.0f, 0.0f,	// 21
-	-0.4f,	0.0f,	0.4f, 1.0f, 0.0f, 0.0f,		// 22
-	0.0f,	0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	// 23
-	0.2f,	0.0f,	0.4f, 1.0f, 0.0f, 0.0f,		// 24
-	-0.4f,	0.0f,	0.2f,	0.0f, 1.0f, 0.0f,	// 25
-	0.4f,	0.0f,	0.2f,	1.0f, 1.0f, 1.0f,	// 26
-	0.4f,	0.0f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 27
+	-0.4f,	0.0f,	-0.4f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, // 14
+	0.0f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, // 15
+	0.2f,	0.0f,	-0.4f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, // 16
+	-0.4f,	0.0f,	-0.2f,	0.0f, 1.0f, 0.0f,	0.0f, 0.0f, // 17
+	-0.4f,	0.0f,	-0.1f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, // 18
+	0.0f,	0.0f,	-0.1f,	0.0f, 1.0f, 0.0f,	1.0f, 1.0f, // 19
+	-0.4f,	0.0f,	0.1f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, // 20
+	0.0f,	0.0f,	0.1f,	0.0f, 1.0f, 0.0f,	0.0f, 0.0f, // 21
+	-0.4f,	0.0f,	0.4f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, // 22
+	0.0f,	0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, // 23
+	0.2f,	0.0f,	0.4f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, // 24
+	-0.4f,	0.0f,	0.2f,	0.0f, 1.0f, 0.0f,	1.0f, 1.0f, // 25
+	0.4f,	0.0f,	0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 0.0f, // 26
+	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, // 27
 };
 
 GLfloat gagangGarpu[] =
 {
 	// Atas
-	0.4f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 0
-	0.4f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 1
-	1.8f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 2
-	1.8f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 3
+	0.4f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		0.0f, 0.0f,	// 0
+	0.4f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	// 1
+	1.8f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		0.0f, 0.0f,	// 2
+	1.8f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	// 3
 
 	// kanan
-	0.4f,	0.1f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 4
-	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 5
-	1.8f,	0.1f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 6
-	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 7
+	0.4f,	0.1f,	-0.2f, 1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	// 4
+	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	// 5
+	1.8f,	0.1f,	-0.2f, 1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	// 6
+	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	// 7
 
 	// kiri
-	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 8
-	0.4f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	// 9
-	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 10
-	1.8f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	// 11
+	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		1.0f, 1.0f,	// 8
+	0.4f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	// 9
+	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		1.0f, 1.0f,	// 10
+	1.8f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	// 11
 
 	// depan
-	0.4f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 12
-	0.4f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 13
-	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 14
-	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 15
+	0.4f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		0.0f, 0.0f,	// 12
+	0.4f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	// 13
+	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		1.0f, 1.0f,	// 14
+	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	// 15
 	
 	// belakang
-	1.8f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 16
-	1.8f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 17
-	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 18
-	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 19
+	1.8f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		0.0f, 0.0f,	// 16
+	1.8f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	// 17
+	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		1.0f, 1.0f,	// 18
+	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	// 19
 
 	// Bawah
-	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 20
-	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 21
-	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 22
-	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 23
+	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		1.0f, 1.0f,	// 20
+	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	// 21
+	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		1.0f, 1.0f,	// 22
+	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	// 23
 };
 
 GLfloat piringKotak[] =
 {
 	//Bawah
-	-0.6f,	0.0f,	0.6f,	1.0f, 0.0f, 0.0f,	// 0
-	0.6f,	0.0f,	0.6f,	1.0f, 0.0f, 0.0f,	// 1
-	0.6f,	0.0f,	-0.6f,	1.0f, 0.0f, 0.0f,	// 2
-	-0.6f,	0.0f,	-0.6f,	1.0f, 0.0f, 0.0f,	// 3
+	-0.6f,	0.0f,	0.6f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	// 0
+	0.6f,	0.0f,	0.6f,	1.0f, 0.0f, 0.0f,	0.0f, 1.0f,	// 1
+	0.6f,	0.0f,	-0.6f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	// 2
+	-0.6f,	0.0f,	-0.6f,	1.0f, 0.0f, 0.0f,	1.0f, 0.0f,	// 3
 	
 	// Atas
-	-1.6f,	0.7f,	1.6f,	0.0f, 0.0f, 1.0f,	// 4
-	1.6f,	0.7f,	1.6f,	0.0f, 1.0f, 0.0f,	// 5
-	1.6f,	0.7f,	-1.6f,	0.0f, 0.0f, 1.0f,	// 6
-	-1.6f,	0.7f,	-1.6f,	0.0f, 1.0f, 0.0f,	// 7
+	-1.6f,	0.7f,	1.6f,	0.0f, 0.0f, 1.0f,	1.0f, 1.0f,	// 4
+	1.6f,	0.7f,	1.6f,	0.0f, 1.0f, 0.0f,	1.0f, 0.0f,	// 5
+	1.6f,	0.7f,	-1.6f,	0.0f, 0.0f, 1.0f,	0.0f, 0.0f,	// 6
+	-1.6f,	0.7f,	-1.6f,	0.0f, 1.0f, 0.0f,	0.0f, 1.0f,	// 7
 };
 
 GLuint permukaanMejaIndices[] =
@@ -346,11 +346,11 @@ GLuint gagangGarpuindices[] =
 
 GLuint piringKotakindices[] =
 {
-	0, 1, 3, 3, 2, 1,
-	1, 0, 4, 4, 5, 1,
-	2, 1, 5, 5, 6, 2,
-	3, 2, 6, 6, 7, 3,
-	0, 3, 7, 7, 4, 0,
+	0, 1, 2, 0, 3, 2,
+	1, 0, 4, 1, 5, 4,
+	5, 6, 2, 5, 1, 2,
+	7, 6, 2, 7, 3, 2,
+	3, 0, 4, 3, 7, 4,
 };
 
 void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize ,GLfloat* vboName, GLsizei eboSize,GLuint* eboName)
@@ -606,15 +606,15 @@ int main()
 	binding(VAO[6], VBO[6], EBO[6], sizeof(gagangSendok), gagangSendok, sizeof(gagangIndices), gagangIndices);
 
 	//garpu
-	//binding(VAO[7], VBO[7], EBO[7], sizeof(garpu), garpu, sizeof(garpuindices), garpuindices);
-	//binding(VAO[8], VBO[8], EBO[8], sizeof(gagangGarpu), gagangGarpu, sizeof(gagangGarpuindices), gagangGarpuindices);
+	binding(VAO[7], VBO[7], EBO[7], sizeof(garpu), garpu, sizeof(garpuindices), garpuindices);
+	binding(VAO[8], VBO[8], EBO[8], sizeof(gagangGarpu), gagangGarpu, sizeof(gagangGarpuindices), gagangGarpuindices);
 
 	//piringOval
 	binding(VAO[9], VBO[9], EBO[9], sizeof(piringOval), piringOval, sizeof(piringOvalIndices), piringOvalIndices);
 	binding(VAO[12], VBO[12], EBO[12], sizeof(alasPiringOval), alasPiringOval, sizeof(alasPiringOvalIndices), alasPiringOvalIndices);
 	
-  //piringKotak
-	//binding(VAO[13], VBO[13], EBO[13], sizeof(piringKotak), piringKotak, sizeof(piringKotakindices), piringKotakindices);
+	//piringKotak
+	binding(VAO[13], VBO[13], EBO[13], sizeof(piringKotak), piringKotak, sizeof(piringKotakindices), piringKotakindices);
   
 	//texture
 	texture permukaanMejaTex("permukaan_meja.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
@@ -719,6 +719,12 @@ int main()
 		glBindVertexArray(VAO[12]);
 		glDrawElements(GL_TRIANGLE_FAN, sizeof(alasPiringOvalIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
+		//piringKotak
+		glUniform1f(scaleUniform, -0.95f);
+		glUniform3f(translationUniform, 0.4f, 0.1005f, 0.0f);
+		glBindVertexArray(VAO[13]);
+		glDrawElements(GL_TRIANGLES, sizeof(piringKotakindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
 		//sendok;
 		sendokTex.Bind();
 		glUniform1f(scaleUniform, -0.95f);
@@ -739,7 +745,7 @@ int main()
 		glBindVertexArray(VAO[6]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
     
-    //sendok3
+		//sendok3
 		glUniform3f(translationUniform, 0.4f, 0.1f, -0.15f);
 		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
@@ -748,8 +754,10 @@ int main()
 		glBindVertexArray(VAO[6]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
-		/*/Garpu
+		//Garpu
 		glUniform3f(translationUniform, -0.4f, 0.1f, -0.15f);
+		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
 		glBindVertexArray(VAO[7]);
 		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[8]);
@@ -757,22 +765,23 @@ int main()
 
 		//Garpu2
 		glUniform3f(translationUniform, -0.15f, 0.1f, 0.4f);
+		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
+		glBindVertexArray(VAO[7]);
+		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[8]);
+		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//Garpu3
+		glUniform3f(translationUniform, 0.4f, 0.1f, 0.15f);
+		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
 		glBindVertexArray(VAO[7]);
 		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[8]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		
-		//piringKotak
-		glUniform3f(translationUniform, 0.4f, 0.1005f, 0.0f);
-		glBindVertexArray(VAO[10]);
-		glDrawElements(GL_TRIANGLES, sizeof(piringKotakindices) / sizeof(int), GL_UNSIGNED_INT, 0);
-
-		//Garpu3
-		glUniform3f(translationUniform, 0.4f, 0.1f, 0.15f);
-		glBindVertexArray(VAO[7]);
-		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
-		glBindVertexArray(VAO[8]);
-		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);*/
+		
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
