@@ -45,16 +45,16 @@ GLfloat permukaanMeja[] =
 {
 	// Koordinat simpul		// Warna		//Texture kordinat	//Normals
 	// Front face
-	-0.5f, 0.05f,  0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.5f, 0.0f, 0.6f,//kiri bawah 0
-	 0.5f, 0.05f,  0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	 0.5f, 0.0f, 0.6f,//kanan bawah 1
-	 0.5f, 0.1f,  0.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	 0.5f, 0.0f, 0.6f,//kanan atas 2
-	-0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	-0.5f, 0.0f, 0.6f,//kiri atas 3
+	-0.5f, 0.05f,  0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	0.0f, 0.1f, 0.1f,//kiri bawah 0
+	 0.5f, 0.05f,  0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	0.0f, 0.1f, 0.1f,//kanan bawah 1
+	 0.5f, 0.1f,  0.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	0.0f, 0.1f, 0.05f,//kanan atas 2
+	-0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	0.0f, 0.1f, 0.05f,//kiri atas 3
 
 	// Back face
-	-0.5f, 0.05f, -0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.5f, 0.0f, -0.6f,//kiri bawah 4
-	 0.5f, 0.05f, -0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	 0.5f, 0.0f, -0.6f,//kanan bawah 5
-	 0.5f, 0.1f, -0.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	 0.5f, 0.0f, -0.6f,//kanan atas 6
-	-0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	-0.5f, 0.0f, -0.6f,//kiri atas 7
+	-0.5f, 0.05f, -0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	0.0f, 0.1f, -0.1f,//kiri bawah 4
+	 0.5f, 0.05f, -0.5f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	0.0f, 0.1f, -0.1f,//kanan bawah 5
+	 0.5f, 0.1f, -0.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	0.0f, 0.1f, -0.05f,//kanan atas 6
+	-0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	0.0f, 0.1f, -0.05f,//kiri atas 7
 
 	// Top face
 	-0.5f,  0.1f,  0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	0.0f, 0.2f, 0.0f,//kiri bawah 8
@@ -69,16 +69,16 @@ GLfloat permukaanMeja[] =
 	-0.5f, 0.05f, -0.5f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	0.0f, -0.05f, 0.0f,//kiri atas 15
 
 	//left face
-	-0.5f, 0.05f, -0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.6f, 0.0f, -0.5f,//kiri bawah 16
-	-0.5f, 0.05f,  0.5f,	1.0f, 0.0f, 0.0f, 1.0f, 0.0f,	-0.6f, 0.0f, 0.5f,//kanan bawah 17
-	-0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 1.0f, 1.0f,	-0.6f, 0.0f, 0.5f,//kanan atas 18
-	-0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	-0.6f, 0.0f, -0.5f,//kiri atas 19
+	-0.5f, 0.05f, -0.5f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.1f, 0.1f, 0.0f,//kiri bawah 16
+	-0.5f, 0.05f,  0.5f,	1.0f, 0.0f, 0.0f, 1.0f, 0.0f,	-0.1f, 0.1f, 0.0f,//kanan bawah 17
+	-0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 1.0f, 1.0f,	-0.05f, 0.1f, 0.0f,//kanan atas 18
+	-0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	-0.05f, 0.1f, 0.0f,//kiri atas 19
 
 	//right face
-	0.5f, 0.05f, -0.5f,		1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	0.6f, 0.0f, -0.5f,//kiri bawah 20
-	0.5f, 0.05f,  0.5f,		1.0f, 0.0f, 0.0f, 1.0f, 0.0f,	0.6f, 0.0f, 0.5f,//kanan bawah 21
-	0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 1.0f, 1.0f,	0.6f, 0.0f, 0.5f,//kanan atas 22
-	0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	0.6f, 0.0f, -0.5f//kiri atas 23
+	0.5f, 0.05f, -0.5f,		1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	0.1f, 0.1f, 0.0f,//kiri bawah 20
+	0.5f, 0.05f,  0.5f,		1.0f, 0.0f, 0.0f, 1.0f, 0.0f,	0.1f, 0.1f, 0.0f,//kanan bawah 21
+	0.5f, 0.1f,  0.5f,		1.0f, 1.0f, 1.0f, 1.0f, 1.0f,	0.05f, 0.1f, 0.0f,//kanan atas 22
+	0.5f, 0.1f, -0.5f,		1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	0.05f, 0.1f, 0.0f//kiri atas 23
 };
 
 GLfloat kakiMeja[] =
@@ -118,160 +118,164 @@ GLfloat taplakMeja[] =
 {
 	// Koordinat simpul		// Warna
 	// Top face
-	-0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f,//kiri bawah 0
-	 0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 1.0f,//kanan bawah 1
-	 0.5f,  0.1001f,  -0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f,//kanan atas 2
-	-0.5f,  0.1001f,  -0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 1.0f,//kiri atas 3
+	-0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f,	0.0f, 0.2f, 0.0f,//kiri bawah 0
+	 0.5f,  0.1001f,  0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 1.0f,	0.0f, 0.2f, 0.0f,//kanan bawah 1
+	 0.5f,  0.1001f,  -0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f,	0.0f, 0.2f, 0.0f,//kanan atas 2
+	-0.5f,  0.1001f,  -0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 1.0f,	0.0f, 0.2f, 0.0f,//kiri atas 3
 
 	//right face
-	0.50015f, -0.25f, 0.2f,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f,//kanan bawah depan 4
-	0.50015f, -0.25f, -0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 0.0f,//kanan bawah belakang 5
+	0.50015f, 0.1001f,	0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 1.0f,	0.05f, 0.1f, 0.0f, //kanan atas depan 4
+	0.50015f, -0.25f,	0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 0.0f,	0.1f, -0.1f, 0.0f,//kanan bawah depan 5
+	0.50015f, -0.25f,	-0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 0.0f,	0.1f, -0.1f, 0.0f,//kanan bawah belakang 6
+	0.50025f, 0.1001f,	-0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f,	0.05f, 0.1f, 0.0f, //kanan atas belakang 7
 
 	//left face
-	-0.50015f, -0.25f, 0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 0.0f,//kiri bawah depan 6
-	-0.50015f, -0.25f, -0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f//kiri bawah belakang 7
+	-0.50015f,  0.1001f, 0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 0.0f,	-0.05f, 0.1f, 0.0f,//kiri atas depan 8
+	-0.50015f, -0.25f,	0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 0.0f,	-0.1f, -0.1f, 0.0f,//kiri bawah depan 9
+	-0.50015f, -0.25f,	-0.2f,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f,	-0.1f, -0.1f, 0.0f,//kiri bawah belakang 10
+	-0.50015f,  0.1001f,-0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 1.0f,	-0.05f, 0.1f, 0.0f//kiri atas belakang 11
 };
 
 GLfloat gelas[jumlahIrisan * 8 * 3];
 
-GLfloat alasGelas[jumlahIrisan * 8 + 7];
+GLfloat alasGelas[jumlahIrisan * 8 * 2];
 
 GLfloat piringBulat[jumlahIrisan * 8 * 3];
 
-GLfloat alasPiringBulat[jumlahIrisan * 8 + 7];
+GLfloat alasPiringBulat[jumlahIrisan * 8 * 2];
 
 GLfloat piringOval[jumlahIrisan * 8 * 3];
 
-GLfloat alasPiringOval[jumlahIrisan * 8 + 7];
+GLfloat alasPiringOval[jumlahIrisan * 8 * 3];
 
-GLfloat sendok[(latDivs + 1) * (lonDivs + 1) * 8 + 8];
+GLfloat sendok[(latDivs + 1) * (lonDivs + 1) * 8 * 3];
 
 GLfloat gagangSendok[] =
 {
 	//bottom
-	0.47f,0.0f,	0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-	1.8f, 0.0f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-	1.8f, 0.0f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-	0.47f,0.0f,	-0.15f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+	0.47f,0.0f,	0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.05f, -0.1f, 0.0f,
+	1.8f, 0.0f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	-0.05f, -0.1f, 0.0f,
+	1.8f, 0.0f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	-0.05f, -0.1f, 0.0f,
+	0.47f,0.0f,	-0.15f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	-0.05f, -0.1f, 0.0f,
 
 	//top
-	0.43f,0.1f,	0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-	1.8f, 0.1f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-	1.8f, 0.1f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-	0.43f,0.1f,	-0.15f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+	0.43f,0.1f,	0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.1f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.1f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
+	0.43f,0.1f,	-0.15f,	1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
 
 	//left side
-	0.47f,0.0f,	0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-	1.8f, 0.0f,	0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-	1.8f, 0.1f,	0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-	0.43f,0.1f,	0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+	0.47f,0.0f,	0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.0f,	0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.1f,	0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
+	0.43f,0.1f,	0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
 
 	//right side
-	0.47f,0.0f,	-0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-	1.8f, 0.0f,	-0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-	1.8f, 0.1f,	-0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-	0.43f,0.1f,	-0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+	0.47f,0.0f,	-0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.0f,	-0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,	-0.05f, 0.2f, 0.0f,
+	1.8f, 0.1f,	-0.15f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
+	0.43f,0.1f,	-0.15f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,	-0.05f, 0.2f, 0.0f,
 
 	//front side
-	1.8f, 0.0f,	0.15f,	0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-	1.8f, 0.0f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 0.0f,
-	1.8f, 0.1f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-	1.8f, 0.1f,	-0.15f,	0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+	1.8f, 0.0f,	0.15f,	0.0f, 1.0f, 0.0f, 0.0f, 0.0f,	1.9f, 0.05f, 0.0f,
+	1.8f, 0.0f,	-0.15f,	0.0f, 0.0f, 1.0f, 1.0f, 0.0f,	1.9f, 0.05f, 0.0f,
+	1.8f, 0.1f,	0.15f,	0.0f, 1.0f, 0.0f, 1.0f, 1.0f,	1.9f, 0.05f, 0.0f,
+	1.8f, 0.1f,	-0.15f,	0.0f, 0.0f, 1.0f, 0.0f, 1.0f,	1.9f, 0.05f, 0.0f,
 
 	//back side
-	0.47f, 0.0f, 0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-	0.47f, 0.0f, -0.15f,1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-	0.43f, 0.1f, 0.15f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
-	0.43f, 0.1f, -0.15f,1.0f, 1.0f, 1.0f, 0.0f, 1.0f
+	0.47f, 0.0f, 0.15f,	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,	0.6f, 0.05f, 0.0f,
+	0.47f, 0.0f, -0.15f,1.0f, 1.0f, 1.0f, 1.0f, 0.0f,	0.6f, 0.05f, 0.0f,
+	0.43f, 0.1f, 0.15f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,	0.6f, 0.05f, 0.0f,
+	0.43f, 0.1f, -0.15f,1.0f, 1.0f, 1.0f, 0.0f, 1.0f,	0.6f, 0.05f, 0.0f
 };
 
 GLfloat garpu[] =
 {
 	// Atas
-	-0.4f,	0.1f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 0
-	0.0f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 1
-	0.2f,	0.1f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 2
-	-0.4f,	0.1f,	-0.2f,	0.0f, 1.0f, 0.0f,	// 3
-	-0.4f,	0.1f,	-0.1f, 1.0f, 0.0f, 0.0f,	// 4
-	0.0f,	0.1f,	-0.1f,	0.0f, 1.0f, 0.0f,	// 5
-	-0.4f,	0.1f,	0.1f, 1.0f, 0.0f, 0.0f,		// 6
-	0.0f,	0.1f,	0.1f,	0.0f, 1.0f, 0.0f,	// 7
-	-0.4f,	0.1f,	0.4f, 1.0f, 0.0f, 0.0f,		// 8
-	0.0f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	// 9
-	0.2f,	0.1f,	0.4f, 1.0f, 0.0f, 0.0f,		// 10
-	-0.4f,	0.1f,	0.2f,	0.0f, 1.0f, 0.0f,	// 11
-	0.4f,	0.1f,	0.2f,	1.0f, 1.0f, 1.0f,	// 12
-	0.4f,	0.1f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 13
+	-0.4f,	0.1f,	-0.4f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.3f,	1.5f,	0.0f,	// 0
+	0.0f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	-0.3f,	2.5f,	0.0f,	// 1
+	0.2f,	0.1f,	-0.4f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	-0.3f,	2.5f,	0.0f,	// 2
+	-0.4f,	0.1f,	-0.2f,	0.0f, 1.0f, 0.0f,	0.0f, 0.0f,	0.3f,	0.2f,	0.0f,	// 3
+	-0.4f,	0.1f,	-0.1f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.3f,	1.5f,	0.0f,	// 4
+	0.0f,	0.1f,	-0.1f,	0.0f, 1.0f, 0.0f,	1.0f, 1.0f,	0.3f,	2.5f,	0.0f,	// 5
+	-0.4f,	0.1f,	0.1f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	0.3f,	0.2f,	0.0f,	// 6
+	0.0f,	0.1f,	0.1f,	0.0f, 1.0f, 0.0f,	0.0f, 0.0f,	0.3f,	2.5f,	0.0f,	// 7
+	-0.4f,	0.1f,	0.4f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	0.3f,	0.2f,	0.0f,	// 8
+	0.0f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	-0.3f,	2.5f,	0.0f,	// 9
+	0.2f,	0.1f,	0.4f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, -0.3f,	2.5f,	0.0f,	// 10
+	-0.4f,	0.1f,	0.2f,	0.0f, 1.0f, 0.0f,	1.0f, 1.0f, 0.3f,	1.5f,	0.0f,	// 11
+	0.4f,	0.1f,	0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 0.0f, 0.3f,	2.5f,	0.0f,	// 12
+	0.4f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	-0.3f,	2.5f,	0.0f,	// 13
 
 	// Bawah
-	-0.4f,	0.0f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 14
-	0.0f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 15
-	0.2f,	0.0f,	-0.4f, 1.0f, 0.0f, 0.0f,	// 16
-	-0.4f,	0.0f,	-0.2f,	0.0f, 1.0f, 0.0f,	// 17
-	-0.4f,	0.0f,	-0.1f, 1.0f, 0.0f, 0.0f,	// 18
-	0.0f,	0.0f,	-0.1f,	0.0f, 1.0f, 0.0f,	// 19
-	-0.4f,	0.0f,	0.1f, 1.0f, 0.0f, 0.0f,		// 20
-	0.0f,	0.0f,	0.1f,	0.0f, 1.0f, 0.0f,	// 21
-	-0.4f,	0.0f,	0.4f, 1.0f, 0.0f, 0.0f,		// 22
-	0.0f,	0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	// 23
-	0.2f,	0.0f,	0.4f, 1.0f, 0.0f, 0.0f,		// 24
-	-0.4f,	0.0f,	0.2f,	0.0f, 1.0f, 0.0f,	// 25
-	0.4f,	0.0f,	0.2f,	1.0f, 1.0f, 1.0f,	// 26
-	0.4f,	0.0f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 27
+	-0.4f,	0.0f,	-0.4f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, 0.3f,	0.1f,	0.0f,	// 14
+	0.0f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.3f,	0.1f,	0.0f,	// 15
+	0.2f,	0.0f,	-0.4f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, -0.3f,	0.1f,	0.0f,	// 16
+	-0.4f,	0.0f,	-0.2f,	0.0f, 1.0f, 0.0f,	0.0f, 0.0f, 0.3f,	0.1f,	0.0f,	// 17
+	-0.4f,	0.0f,	-0.1f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, 0.3f,	0.1f,	0.0f,	// 18
+	0.0f,	0.0f,	-0.1f,	0.0f, 1.0f, 0.0f,	1.0f, 1.0f, 0.3f,	0.1f,	0.0f,	// 19
+	-0.4f,	0.0f,	0.1f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.3f,	0.1f,	0.0f,	// 20
+	0.0f,	0.0f,	0.1f,	0.0f, 1.0f, 0.0f,	0.0f, 0.0f, 0.3f,	0.1f,	0.0f,	// 21
+	-0.4f,	0.0f,	0.4f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.3f,	0.1f,	0.0f,	// 22
+	0.0f,	0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, 0.3f,	0.1f,	0.0f,	// 23
+	0.2f,	0.0f,	0.4f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f, -0.3f,	0.1f,	0.0f,	// 24
+	-0.4f,	0.0f,	0.2f,	0.0f, 1.0f, 0.0f,	1.0f, 1.0f, 0.3f,	0.1f,	0.0f,	// 25
+	0.4f,	0.0f,	0.2f,	1.0f, 1.0f, 1.0f,	0.0f, 0.0f, -0.3f,	0.1f,	0.0f,	// 26
+	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f, -0.3f,	0.1f,	0.0f,	// 27
 };
 
 GLfloat gagangGarpu[] =
 {
 	// Atas
-	0.4f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 0
-	0.4f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 1
-	1.8f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 2
-	1.8f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 3
+	0.4f, 0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	0.0f,	0.0f,	0.0f,	// 0
+	0.4f, 0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.0f,	0.05f,	0.0f,	// 1
+	1.8f, 0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	-0.25f,	2.5f,	0.0f,	// 2
+	1.8f, 0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	-0.25f,	2.5f,	0.0f,	// 3
 
 	// kanan
-	0.4f,	0.1f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 4
-	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 5
-	1.8f,	0.1f,	-0.2f, 1.0f, 0.0f, 0.0f,	// 6
-	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 7
+	0.4f, 0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.0f,	0.05f,	0.0f,	// 4
+	0.4f, 0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.0f,	0.05f,	0.0f,	// 5
+	1.8f, 0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	-0.25f,	2.5f,	0.0f,	// 6
+	1.8f, 0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	-0.25f,	2.5f,	0.0f,	// 7
 
 	// kiri
-	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 8
-	0.4f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	// 9
-	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 10
-	1.8f,	0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	// 11
+	0.4f, 0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.0f,	0.0f,	0.0f,	// 8
+	0.4f, 0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.0f,	0.0f,	0.0f,	// 9
+	1.8f, 0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	-0.25f,	2.5f,	0.0f,	// 10
+	1.8f, 0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	-0.25f,	2.5f,	0.0f,	// 11
 
 	// depan
-	0.4f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 12
-	0.4f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 13
-	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 14
-	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 15
+	0.4f, 0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	0.0f,	0.0f,	0.0f,	// 12
+	0.4f, 0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.0f,	0.0f,	0.0f,	// 13
+	0.4f, 0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.0f,	0.0f,	0.0f,	// 14
+	0.4f, 0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	0.0f,	0.0f,	0.0f,	// 15
 	
 	// belakang
-	1.8f,	0.1f,	0.2f, 1.0f, 0.0f, 0.0f,		// 16
-	1.8f,	0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 17
-	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 18
-	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 19
+	1.8f, 0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	0.5f,	0.5f,	0.0f,	// 16
+	1.8f, 0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.5f,	0.5f,	0.0f,	// 17
+	1.8f, 0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.5f,	0.0f,	0.0f,	// 18
+	1.8f, 0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	0.5f,	0.0f,	0.0f,	// 19
 
 	// Bawah
-	0.4f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 20
-	0.4f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 21
-	1.8f,	0.0f,	0.2f, 1.0f, 0.0f, 0.0f,		// 22
-	1.8f,	0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	// 23
+	0.4f, 0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.0f,	0.0f,	0.0f,	// 20
+	0.4f, 0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	0.0f,	0.0f,	0.0f,	// 21
+	1.8f, 0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.0f,	0.0f,	0.0f,	// 22
+	1.8f, 0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	0.0f,	0.0f,	0.0f,	// 23
 };
 
 GLfloat piringKotak[] =
 {
 	//Bawah
-	-0.6f,	0.0f,	0.6f,	1.0f, 0.0f, 0.0f,	// 0
-	0.6f,	0.0f,	0.6f,	1.0f, 0.0f, 0.0f,	// 1
-	0.6f,	0.0f,	-0.6f,	1.0f, 0.0f, 0.0f,	// 2
-	-0.6f,	0.0f,	-0.6f,	1.0f, 0.0f, 0.0f,	// 3
+	-0.6f,	0.0f, 0.6f,		1.0f, 1.0f, 1.0f,	0.8f, 0.8f,	0.6f,	0.95f,	0.0f,	// 0
+	0.6f,	0.0f, 0.6f,		1.0f, 1.0f, 1.0f,	0.8f, 1.0f,	-0.6f,	0.95f,	0.0f,	// 1
+	0.6f,	0.0f, -0.6f,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f,	-0.6f,	0.95f,	0.0f,	// 2
+	-0.6f,	0.0f, -0.6f,	1.0f, 1.0f, 1.0f,	1.0f, 0.8f,	0.6f,	0.95f,	0.0f,	// 3
 	
 	// Atas
-	-1.6f,	0.7f,	1.6f,	0.0f, 0.0f, 1.0f,	// 4
-	1.6f,	0.7f,	1.6f,	0.0f, 1.0f, 0.0f,	// 5
-	1.6f,	0.7f,	-1.6f,	0.0f, 0.0f, 1.0f,	// 6
-	-1.6f,	0.7f,	-1.6f,	0.0f, 1.0f, 0.0f,	// 7
+	-1.6f,	0.7f,	1.6f,	1.0f, 1.0f, 1.0f,	0.3f, 0.3f,	1.8f,	0.0f,	-1.7f,	// 4
+	1.6f,	0.7f,	1.6f,	1.0f, 1.0f, 1.0f,	0.3f, 0.1f,	-1.8f,	0.0f,	-1.7f,	// 5
+	1.6f,	0.7f,	-1.6f,	1.0f, 1.0f, 1.0f,	0.1f, 0.1f,	-1.8f,	0.0f,	1.7f,	// 6
+	-1.6f,	0.7f,	-1.6f,	1.0f, 1.0f, 1.0f,	0.1f, 0.3f,	1.8f,	0.0f,	1.7f,	// 7
 };
 
 GLfloat lampu[] =
@@ -309,8 +313,8 @@ GLuint kakiMejaIndices[] =
 GLuint taplakMejaIndices[] =
 {
 	0, 1, 2, 2, 3, 0,
-	1, 4, 5, 5, 2, 1,
-	0, 6, 7, 7, 3, 0
+	4, 5, 6, 6, 7, 4,
+	8, 9, 10, 10, 11, 8
 };
 
 GLuint gelasIndices[jumlahIrisan * 3 * 2];
@@ -371,11 +375,11 @@ GLuint gagangGarpuindices[] =
 
 GLuint piringKotakindices[] =
 {
-	0, 1, 3, 3, 2, 1,
-	1, 0, 4, 4, 5, 1,
-	2, 1, 5, 5, 6, 2,
-	3, 2, 6, 6, 7, 3,
-	0, 3, 7, 7, 4, 0,
+	0, 1, 2, 0, 3, 2,
+	1, 0, 4, 1, 5, 4,
+	5, 6, 2, 5, 1, 2,
+	7, 6, 2, 7, 3, 2,
+	3, 0, 4, 3, 7, 4,
 };
 
 GLuint lampuIndices[] =
@@ -442,92 +446,119 @@ int main()
 
 		//gelas
 		// Bottom vertex
-		gelas[i * 8 * 2] = x / 2;
-		gelas[i * 8 * 2 + 1] = -tinggiGelas / 2.0f;
-		gelas[i * 8 * 2 + 2] = z / 2;
-		gelas[i * 8 * 2 + 3] = 1.0f; // Red color
-		gelas[i * 8 * 2 + 4] = 0.0f; // Green color
-		gelas[i * 8 * 2 + 5] = 0.0f; // Blue color
-		gelas[i * 8 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		gelas[i * 8 * 2 + 7] = 0.0f; // Texture coordinate v
+		gelas[i * 11 * 2] = x / 2;
+		gelas[i * 11 * 2 + 1] = -tinggiGelas / 2.0f;
+		gelas[i * 11 * 2 + 2] = z / 2;
+		gelas[i * 11 * 2 + 3] = 1.0f; // Red color
+		gelas[i * 11 * 2 + 4] = 0.0f; // Green color
+		gelas[i * 11 * 2 + 5] = 0.0f; // Blue color
+		gelas[i * 11 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		gelas[i * 11 * 2 + 7] = 0.0f; // Texture coordinate v
+		gelas[i * 11 * 2 + 8] = 0.0f; // normal x
+		gelas[i * 11 * 2 + 9] = 0.0f; // normal y
+		gelas[i * 11 * 2 + 10] = 0.0f; // normal z
 
 		//alas vertex
-		alasGelas[i * 8] = x / 2;
-		alasGelas[i * 8 + 1] = -tinggiGelas / 2.0f;
-		alasGelas[i * 8 + 2] = z / 2;
-		alasGelas[i * 8 + 3] = 0.4f; // Red color
-		alasGelas[i * 8 + 4] = 0.2f; // Green color
-		alasGelas[i * 8 + 5] = 0.5f; // Blue color
-		alasGelas[i * 8 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
-		alasGelas[i * 8 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
-		
+		alasGelas[i * 11] = x / 2;
+		alasGelas[i * 11 + 1] = -tinggiGelas / 2.0f;
+		alasGelas[i * 11 + 2] = z / 2;
+		alasGelas[i * 11 + 3] = 0.4f; // Red color
+		alasGelas[i * 11 + 4] = 0.2f; // Green color
+		alasGelas[i * 11 + 5] = 0.5f; // Blue color
+		alasGelas[i * 11 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
+		alasGelas[i * 11 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
+		alasGelas[i * 11 + 8] = 0.0f;
+		alasGelas[i * 11 + 9] = 0.2f;
+		alasGelas[i * 11 + 10] = 0.0f;
+
 		// Top vertex
-		gelas[i * 8 * 2 + 8] = x;
-		gelas[i * 8 * 2 + 9] = tinggiGelas / 2.0f;
-		gelas[i * 8 * 2 + 10] = z;
-		gelas[i * 8 * 2 + 11] = 0.0f; // Red color
-		gelas[i * 8 * 2 + 12] = 1.0f; // Green color
-		gelas[i * 8 * 2 + 13] = 0.0f; // Blue color
-		gelas[i * 8 * 2 + 14] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		gelas[i * 8 * 2 + 15] = 1.0f; // Texture coordinate v
+		gelas[i * 11 * 2 + 11] = x;
+		gelas[i * 11 * 2 + 12] = tinggiGelas / 2.0f;
+		gelas[i * 11 * 2 + 13] = z;
+		gelas[i * 11 * 2 + 14] = 0.0f; // Red color
+		gelas[i * 11 * 2 + 15] = 1.0f; // Green color
+		gelas[i * 11 * 2 + 16] = 0.0f; // Blue color
+		gelas[i * 11 * 2 + 17] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		gelas[i * 11 * 2 + 18] = 1.0f; // Texture coordinate v
+		gelas[i * 11 * 2 + 19] = 0.0f; // normal x
+		gelas[i * 11 * 2 + 20] = 0.2f; // normal y
+		gelas[i * 11 * 2 + 21] = 0.0f; // normal z
 
 		//piring
 		// Bottom vertex
-		piringBulat[i * 8 * 2] = x / 2;
-		piringBulat[i * 8 * 2 + 1] = -tinggiPiring / 2.0f;
-		piringBulat[i * 8 * 2 + 2] = z / 2;
-		piringBulat[i * 8 * 2 + 3] = 1.0f; // Red color
-		piringBulat[i * 8 * 2 + 4] = 0.0f; // Green color
-		piringBulat[i * 8 * 2 + 5] = 0.0f; // Blue color
-		piringBulat[i * 8 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		piringBulat[i * 8 * 2 + 7] = 0.0f; // Texture coordinate v
+		piringBulat[i * 11 * 2] = x / 2;
+		piringBulat[i * 11 * 2 + 1] = -tinggiPiring / 2.0f;
+		piringBulat[i * 11 * 2 + 2] = z / 2;
+		piringBulat[i * 11 * 2 + 3] = 1.0f; // Red color
+		piringBulat[i * 11 * 2 + 4] = 0.0f; // Green color
+		piringBulat[i * 11 * 2 + 5] = 0.0f; // Blue color
+		piringBulat[i * 11 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		piringBulat[i * 11 * 2 + 7] = 0.0f; // Texture coordinate v
+		piringBulat[i * 11 * 2 + 8] = 0.0f; // normal x
+		piringBulat[i * 11 * 2 + 9] = 0.0f; // normal y
+		piringBulat[i * 11 * 2 + 10] = 0.0f; // normal z
 
-		piringOval[i * 8 * 2] = x / 2;
-		piringOval[i * 8 * 2 + 1] = -tinggiPiring / 2.0f;
-		piringOval[i * 8 * 2 + 2] = z / 2;
-		piringOval[i * 8 * 2 + 3] = 1.0f; // Red color
-		piringOval[i * 8 * 2 + 4] = 0.0f; // Green color
-		piringOval[i * 8 * 2 + 5] = 0.0f; // Blue color
-		piringOval[i * 8 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		piringOval[i * 8 * 2 + 7] = 0.0f; // Texture coordinate v
+		piringOval[i * 11 * 2] = x / 2;
+		piringOval[i * 11 * 2 + 1] = -tinggiPiring / 2.0f;
+		piringOval[i * 11 * 2 + 2] = z / 2;
+		piringOval[i * 11 * 2 + 3] = 1.0f; // Red color
+		piringOval[i * 11 * 2 + 4] = 0.0f; // Green color
+		piringOval[i * 11 * 2 + 5] = 0.0f; // Blue color
+		piringOval[i * 11 * 2 + 6] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		piringOval[i * 11 * 2 + 7] = 0.0f; // Texture coordinate v
+		piringOval[i * 11 * 2 + 8] = 0.0f; // normal x
+		piringOval[i * 11 * 2 + 9] = 0.0f; // normal y
+		piringOval[i * 11 * 2 + 10] = 0.0f; // normal z
 
 		//alas piring
-		alasPiringBulat[i * 8] = x / 2;
-		alasPiringBulat[i * 8 + 1] = -tinggiPiring / 2.0f;
-		alasPiringBulat[i * 8 + 2] = z / 2;
-		alasPiringBulat[i * 8 + 3] = 0.4f; // Red color
-		alasPiringBulat[i * 8 + 4] = 0.2f; // Green color
-		alasPiringBulat[i * 8 + 5] = 0.5f; // Blue color
-		alasPiringBulat[i * 8 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
-		alasPiringBulat[i * 8 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
-		
-		alasPiringOval[i * 8] = x / 2;
-		alasPiringOval[i * 8 + 1] = -tinggiPiring / 2.0f;
-		alasPiringOval[i * 8 + 2] = z / 2;
-		alasPiringOval[i * 8 + 3] = 0.4f; // Red color
-		alasPiringOval[i * 8 + 4] = 0.2f; // Green color
-		alasPiringOval[i * 8 + 5] = 0.5f; // Blue color
-		alasPiringOval[i * 8 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
-		alasPiringOval[i * 8 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
+		alasPiringBulat[i * 11] = x / 2;
+		alasPiringBulat[i * 11 + 1] = -tinggiPiring / 2.0f;
+		alasPiringBulat[i * 11 + 2] = z / 2;
+		alasPiringBulat[i * 11 + 3] = 0.4f; // Red color
+		alasPiringBulat[i * 11 + 4] = 0.2f; // Green color
+		alasPiringBulat[i * 11 + 5] = 0.5f; // Blue color
+		alasPiringBulat[i * 11 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
+		alasPiringBulat[i * 11 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
+		alasPiringBulat[i * 11 + 8] = 0.0f;
+		alasPiringBulat[i * 11 + 9] = 0.2f;
+		alasPiringBulat[i * 11 + 10] = 0.0f;
+
+		alasPiringOval[i * 11] = x / 2;
+		alasPiringOval[i * 11 + 1] = -tinggiPiring / 2.0f;
+		alasPiringOval[i * 11 + 2] = z / 2;
+		alasPiringOval[i * 11 + 3] = 0.4f; // Red color
+		alasPiringOval[i * 11 + 4] = 0.2f; // Green color
+		alasPiringOval[i * 11 + 5] = 0.5f; // Blue color
+		alasPiringOval[i * 11 + 6] = 0.3f * (x / jariJari) + 0.5f; // Texture coordinate u
+		alasPiringOval[i * 11 + 7] = 0.2f * (z / jariJari) + 0.5f; // Texture coordinate v
+		alasPiringOval[i * 11 + 8] = 0.0f;
+		alasPiringOval[i * 11 + 9] = 0.2f;
+		alasPiringOval[i * 11 + 10] = 0.0f;
 
 		//top vertex
-		piringBulat[i * 8 * 2 + 8] = x;
-		piringBulat[i * 8 * 2 + 9] = tinggiPiring / 2.0f;
-		piringBulat[i * 8 * 2 + 10] = z;
-		piringBulat[i * 8 * 2 + 11] = 0.0f; // Red color
-		piringBulat[i * 8 * 2 + 12] = 1.0f; // Green color
-		piringBulat[i * 8 * 2 + 13] = 0.0f; // Blue color
-		piringBulat[i * 8 * 2 + 14] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		piringBulat[i * 8 * 2 + 15] = 1.0f; // Texture coordinate v
+		piringBulat[i * 11 * 2 + 11] = x;
+		piringBulat[i * 11 * 2 + 12] = tinggiPiring / 2.0f;
+		piringBulat[i * 11 * 2 + 13] = z;
+		piringBulat[i * 11 * 2 + 14] = 0.0f; // Red color
+		piringBulat[i * 11 * 2 + 15] = 1.0f; // Green color
+		piringBulat[i * 11 * 2 + 16] = 0.0f; // Blue color
+		piringBulat[i * 11 * 2 + 17] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		piringBulat[i * 11 * 2 + 18] = 1.0f; // Texture coordinate v
+		piringBulat[i * 11 * 2 + 19] = 0.0f; // normal x
+		piringBulat[i * 11 * 2 + 20] = 0.2f; // normal y
+		piringBulat[i * 11 * 2 + 21] = 0.0f; // normal z
 
-		piringOval[i * 8 * 2 + 8] = x;
-		piringOval[i * 8 * 2 + 9] = tinggiPiring / 2.0f;
-		piringOval[i * 8 * 2 + 10] = z / 1.3f;
-		piringOval[i * 8 * 2 + 11] = 0.0f; // Red color
-		piringOval[i * 8 * 2 + 12] = 1.0f; // Green color
-		piringOval[i * 8 * 2 + 13] = 0.0f; // Blue color
-		piringOval[i * 8 * 2 + 14] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
-		piringOval[i * 8 * 2 + 15] = 1.0f; // Texture coordinate v
+		piringOval[i * 11 * 2 + 11] = x;
+		piringOval[i * 11 * 2 + 12] = tinggiPiring / 2.0f;
+		piringOval[i * 11 * 2 + 13] = z / 1.3f;
+		piringOval[i * 11 * 2 + 14] = 0.0f; // Red color
+		piringOval[i * 11 * 2 + 15] = 1.0f; // Green color
+		piringOval[i * 11 * 2 + 16] = 0.0f; // Blue color
+		piringOval[i * 11 * 2 + 17] = static_cast<float>(i) / jumlahIrisan; // Texture coordinate u
+		piringOval[i * 11 * 2 + 18] = 1.0f; // Texture coordinate v
+		piringOval[i * 11 * 2 + 19] = 0.0f; // normal x
+		piringOval[i * 11 * 2 + 20] = 0.2f; // normal y
+		piringOval[i * 11 * 2 + 21] = 0.0f; // normal z
 	}
 
 	for (int i = 0; i < jumlahIrisan; i++) {
@@ -592,8 +623,14 @@ int main()
 			sendok[vertexIndex++] = 0.5f; // Green
 			sendok[vertexIndex++] = 0.0f; // Blue
 
+			//texture
 			sendok[vertexIndex++] = theta / (2.0f * PI);
 			sendok[vertexIndex++] = 1.0f - (phi / PI);
+
+			//normal
+			sendok[vertexIndex++] = 0.0f;
+			sendok[vertexIndex++] = 0.2f;
+			sendok[vertexIndex++] = 0.0f;
 
 			// Calculate indices for the quad's two triangles
 			if (lat < latDivs / 2 && lon < lonDivs) {
@@ -632,7 +669,7 @@ int main()
 
 	//Taplak Meja
 	binding(VAO[2], VBO[2], EBO[2], sizeof(taplakMeja), taplakMeja, sizeof(taplakMejaIndices), taplakMejaIndices);
-	
+
 	//gelas
 	binding(VAO[3], VBO[3], EBO[3], sizeof(gelas), gelas, sizeof(gelasIndices), gelasIndices);
 	binding(VAO[10], VBO[10], EBO[10], sizeof(alasGelas), alasGelas, sizeof(alasGelasIndices), alasGelasIndices);
@@ -646,15 +683,15 @@ int main()
 	binding(VAO[6], VBO[6], EBO[6], sizeof(gagangSendok), gagangSendok, sizeof(gagangIndices), gagangIndices);
 
 	//garpu
-	//binding(VAO[7], VBO[7], EBO[7], sizeof(garpu), garpu, sizeof(garpuindices), garpuindices);
-	//binding(VAO[8], VBO[8], EBO[8], sizeof(gagangGarpu), gagangGarpu, sizeof(gagangGarpuindices), gagangGarpuindices);
+	binding(VAO[7], VBO[7], EBO[7], sizeof(garpu), garpu, sizeof(garpuindices), garpuindices);
+	binding(VAO[8], VBO[8], EBO[8], sizeof(gagangGarpu), gagangGarpu, sizeof(gagangGarpuindices), gagangGarpuindices);
 
 	//piringOval
 	binding(VAO[9], VBO[9], EBO[9], sizeof(piringOval), piringOval, sizeof(piringOvalIndices), piringOvalIndices);
 	binding(VAO[12], VBO[12], EBO[12], sizeof(alasPiringOval), alasPiringOval, sizeof(alasPiringOvalIndices), alasPiringOvalIndices);
-	
+
 	//piringKotak
-	//binding(VAO[13], VBO[13], EBO[13], sizeof(piringKotak), piringKotak, sizeof(piringKotakindices), piringKotakindices);
+	binding(VAO[13], VBO[13], EBO[13], sizeof(piringKotak), piringKotak, sizeof(piringKotakindices), piringKotakindices);
 
 	unsigned int rectVAO, rectVBO;
 	glGenVertexArrays(1, &rectVAO);
@@ -684,7 +721,7 @@ int main()
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
-	
+
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -698,7 +735,7 @@ int main()
 	lightShader.Activate();
 	glUniformMatrix4fv(glGetUniformLocation(lightShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(lightModel));
 	glUniform4f(glGetUniformLocation(lightShader.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
-	
+
 	shaderProgram.Activate();
 	glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 	glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
@@ -725,12 +762,12 @@ int main()
 	gelasTex.textureUnit(shaderProgram, "tex0", 0);
 	gelasTex.Bind();
 	gelasTex.Unbind();
-	
+
 	texture piringTex("piring.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
 	piringTex.textureUnit(shaderProgram, "tex0", 0);
 	piringTex.Bind();
 	piringTex.Unbind();
-	
+
 	texture sendokTex("sendok.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
 	sendokTex.textureUnit(shaderProgram, "tex0", 0);
 	sendokTex.Bind();
@@ -859,15 +896,15 @@ int main()
 		kakiMejaTex.Bind();
 		glUniform3f(translationUniform, 0.05f, 0.15f, -0.05f);
 		glBindVertexArray(VAO[1]);
-		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices)/sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri meja
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri meja
 		glUniform3f(translationUniform, 0.9f, 0.15f, -0.05f);
-		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices)/sizeof(int), GL_UNSIGNED_INT, 0);//kaki kanan meja
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kanan meja
 		glUniform3f(translationUniform, 0.9f, 0.15f, -0.9f);
 		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kanan belakang
 		glUniform3f(translationUniform, 0.05f, 0.15f, -0.9f);
 		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri belakang
 
-		/*/Taplak meja
+		//Taplak meja
 		taplakMejaTex.Bind();
 		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
 		glBindVertexArray(VAO[2]);
@@ -898,6 +935,12 @@ int main()
 		glBindVertexArray(VAO[12]);
 		glDrawElements(GL_TRIANGLE_FAN, sizeof(alasPiringOvalIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
+		//piringKotak
+		glUniform1f(scaleUniform, -0.95f);
+		glUniform3f(translationUniform, 0.4f, 0.1005f, 0.0f);
+		glBindVertexArray(VAO[13]);
+		glDrawElements(GL_TRIANGLES, sizeof(piringKotakindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
 		//sendok;
 		sendokTex.Bind();
 		glUniform1f(scaleUniform, -0.95f);
@@ -917,8 +960,8 @@ int main()
 		glDrawElements(GL_TRIANGLES, sizeof(sendokIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[6]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
-    
-    //sendok3
+
+		//sendok3
 		glUniform3f(translationUniform, 0.4f, 0.1f, -0.15f);
 		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
@@ -929,6 +972,8 @@ int main()
 
 		//Garpu
 		glUniform3f(translationUniform, -0.4f, 0.1f, -0.15f);
+		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
 		glBindVertexArray(VAO[7]);
 		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[8]);
@@ -936,27 +981,26 @@ int main()
 
 		//Garpu2
 		glUniform3f(translationUniform, -0.15f, 0.1f, 0.4f);
+		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
 		glBindVertexArray(VAO[7]);
 		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[8]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
-		
-		//piringKotak
-		glUniform3f(translationUniform, 0.4f, 0.1005f, 0.0f);
-		glBindVertexArray(VAO[10]);
-		glDrawElements(GL_TRIANGLES, sizeof(piringKotakindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		//Garpu3
 		glUniform3f(translationUniform, 0.4f, 0.1f, 0.15f);
+		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(rotationMatrix));
 		glBindVertexArray(VAO[7]);
 		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[8]);
-		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);*/
+		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
-		lightShader.Activate();
+		/*lightShader.Activate();
 		camera.Matrix(lightShader, "camMatrix");
 		glBindVertexArray(lightVAO);
-		glDrawElements(GL_TRIANGLES, sizeof(lampuIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, sizeof(lampuIndices) / sizeof(int), GL_UNSIGNED_INT, 0);*/
 
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		// Draw the framebuffer rectangle
