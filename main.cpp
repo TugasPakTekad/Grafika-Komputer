@@ -455,7 +455,7 @@ int main()
 		alasGelas[i * 11 + 8] = 0.0f;
 		alasGelas[i * 11 + 9] = 0.2f;
 		alasGelas[i * 11 + 10] = 0.0f;
-		
+
 		// Top vertex
 		gelas[i * 11 * 2 + 11] = x;
 		gelas[i * 11 * 2 + 12] = tinggiGelas / 2.0f;
@@ -507,7 +507,7 @@ int main()
 		alasPiringBulat[i * 11 + 8] = 0.0f;
 		alasPiringBulat[i * 11 + 9] = 0.2f;
 		alasPiringBulat[i * 11 + 10] = 0.0f;
-		
+
 		alasPiringOval[i * 11] = x / 2;
 		alasPiringOval[i * 11 + 1] = -tinggiPiring / 2.0f;
 		alasPiringOval[i * 11 + 2] = z / 2;
@@ -654,7 +654,7 @@ int main()
 
 	//Taplak Meja
 	binding(VAO[2], VBO[2], EBO[2], sizeof(taplakMeja), taplakMeja, sizeof(taplakMejaIndices), taplakMejaIndices);
-	
+
 	//gelas
 	binding(VAO[3], VBO[3], EBO[3], sizeof(gelas), gelas, sizeof(gelasIndices), gelasIndices);
 	binding(VAO[10], VBO[10], EBO[10], sizeof(alasGelas), alasGelas, sizeof(alasGelasIndices), alasGelasIndices);
@@ -674,7 +674,7 @@ int main()
 	//piringOval
 	binding(VAO[9], VBO[9], EBO[9], sizeof(piringOval), piringOval, sizeof(piringOvalIndices), piringOvalIndices);
 	binding(VAO[12], VBO[12], EBO[12], sizeof(alasPiringOval), alasPiringOval, sizeof(alasPiringOvalIndices), alasPiringOvalIndices);
-	
+
 	//piringKotak
 	binding(VAO[13], VBO[13], EBO[13], sizeof(piringKotak), piringKotak, sizeof(piringKotakindices), piringKotakindices);
 
@@ -694,7 +694,7 @@ int main()
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
-	
+
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -708,11 +708,11 @@ int main()
 	lightShader.Activate();
 	glUniformMatrix4fv(glGetUniformLocation(lightShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(lightModel));
 	glUniform4f(glGetUniformLocation(lightShader.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
-	
+
 	shaderProgram.Activate();
 	glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 	glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
-  
+
 	//texture
 	texture permukaanMejaTex("permukaan_meja.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
 	permukaanMejaTex.textureUnit(shaderProgram, "tex0", 0);
@@ -733,12 +733,12 @@ int main()
 	gelasTex.textureUnit(shaderProgram, "tex0", 0);
 	gelasTex.Bind();
 	gelasTex.Unbind();
-	
+
 	texture piringTex("piring.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
 	piringTex.textureUnit(shaderProgram, "tex0", 0);
 	piringTex.Bind();
 	piringTex.Unbind();
-	
+
 	texture sendokTex("sendok.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
 	sendokTex.textureUnit(shaderProgram, "tex0", 0);
 	sendokTex.Bind();
@@ -778,9 +778,9 @@ int main()
 		kakiMejaTex.Bind();
 		glUniform3f(translationUniform, 0.05f, 0.15f, -0.05f);
 		glBindVertexArray(VAO[1]);
-		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices)/sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri meja
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri meja
 		glUniform3f(translationUniform, 0.9f, 0.15f, -0.05f);
-		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices)/sizeof(int), GL_UNSIGNED_INT, 0);//kaki kanan meja
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kanan meja
 		glUniform3f(translationUniform, 0.9f, 0.15f, -0.9f);
 		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kanan belakang
 		glUniform3f(translationUniform, 0.05f, 0.15f, -0.9f);
@@ -842,7 +842,7 @@ int main()
 		glDrawElements(GL_TRIANGLES, sizeof(sendokIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(VAO[6]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
-    
+
 		//sendok3
 		glUniform3f(translationUniform, 0.4f, 0.1f, -0.15f);
 		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -879,10 +879,10 @@ int main()
 		glBindVertexArray(VAO[8]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
-		lightShader.Activate();
+		/*lightShader.Activate();
 		camera.Matrix(lightShader, "camMatrix");
 		glBindVertexArray(lightVAO);
-		glDrawElements(GL_TRIANGLES, sizeof(lampuIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, sizeof(lampuIndices) / sizeof(int), GL_UNSIGNED_INT, 0);*/
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
