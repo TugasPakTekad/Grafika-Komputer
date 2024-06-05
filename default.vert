@@ -11,11 +11,15 @@ out vec2 texturePosition;
 out vec3 currentPos;
 out vec3 normal;
 
+out vec4 fragPos;
+
 uniform mat4 camMatrix;
 
 uniform float scale;
 uniform vec3 translation;
 uniform mat4 rotation;
+
+uniform mat4 lightProjection;
 
 void main()
 {
@@ -24,6 +28,8 @@ void main()
 	vec4 pos = vec4(position + position * scale, 1.0);
 	pos = rotation * pos; // Apply rotation
 	pos = pos + vec4(translation, 0.0); // Apply translation
+
+	fragPos = lightProjection * vec4(currentPos, 1.0f);
 
 	gl_Position = camMatrix * pos;
 	color = aColor;
