@@ -29,6 +29,18 @@ const float tinggiPiring = 0.05f;
 const int latDivs = 18;
 const int lonDivs = 36;
 
+float rectangleVertices[] =
+{
+	// Coords    // texCoords
+	 1.0f, -1.0f,  1.0f, 0.0f,
+	-1.0f, -1.0f,  0.0f, 0.0f,
+	-1.0f,  1.0f,  0.0f, 1.0f,
+
+	 1.0f,  1.0f,  1.0f, 1.0f,
+	 1.0f, -1.0f,  1.0f, 0.0f,
+	-1.0f,  1.0f,  0.0f, 1.0f
+};
+
 GLfloat permukaanMeja[] =
 {
 	// Koordinat simpul		// Warna		//Texture kordinat	//Normals
@@ -423,6 +435,8 @@ int main()
 	glViewport(0, 0, windowWidth, windowHeight);
 
 	Shader shaderProgram("default.vert", "default.frag");
+	Shader shadowMapProgram("shadow.vert", "shadow.frag");
+	Shader shadowScene("scene.vert", "scene.frag");
 
 	for (int i = 0; i <= jumlahIrisan; ++i) {
 		float sudut = 2.0f * PI / jumlahIrisan;
@@ -678,6 +692,17 @@ int main()
 	//piringKotak
 	binding(VAO[13], VBO[13], EBO[13], sizeof(piringKotak), piringKotak, sizeof(piringKotakindices), piringKotakindices);
 
+	unsigned int rectVAO, rectVBO;
+	glGenVertexArrays(1, &rectVAO);
+	glGenBuffers(1, &rectVBO);
+	glBindVertexArray(rectVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, rectVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(rectangleVertices), &rectangleVertices, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
+
 	Shader lightShader("light.vert", "light.frag");
 	GLuint lightVAO, lightVBO, lightEBO;
 
@@ -752,12 +777,204 @@ int main()
 
 	Camera camera(windowWidth, windowHeight, glm::vec3(0.0f, 0.0f, 2.0f));
 
+	// Framebuffer for Shadow Map
+	unsigned int shadowMapFBO;
+	glGenFramebuffers(1, &shadowMapFBO);
+
+	// Texture for Shadow Map FBO
+	unsigned int shadowMapWidth = 1024, shadowMapHeight = 1024;
+	unsigned int shadowMap;
+	glGenTextures(1, &shadowMap);
+	glBindTexture(GL_TEXTURE_2D, shadowMap);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, shadowMapWidth, shadowMapHeight, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+	// Prevents darkness outside the frustrum
+	float clampColor[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, clampColor);
+
+	glBindFramebuffer(GL_FRAMEBUFFER, shadowMapFBO);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, shadowMap, 0);
+	// Needed since we don't touch the color buffer
+	glDrawBuffer(GL_NONE);
+	glReadBuffer(GL_NONE);
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+	// Matrices needed for the light's perspective
+	glm::mat4 orthgonalProjection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 7.5f);
+	glm::mat4 lightView = glm::lookAt(glm::vec3(-2.0f, 1.0f, -1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	glm::mat4 lightProjection = orthgonalProjection * lightView;
+
 	while (!glfwWindowShouldClose(window))
 	{
+		glm::mat4 model = glm::mat4(1.0f);
+
+		glEnable(GL_DEPTH_TEST);
+
+		glViewport(0, 0, shadowMapWidth, shadowMapHeight);
+		glBindFramebuffer(GL_FRAMEBUFFER, shadowMapFBO);
+		glClear(GL_DEPTH_BUFFER_BIT);
+
+		shadowMapProgram.Activate();
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "lightProjection"), 1, GL_FALSE, glm::value_ptr(lightProjection));
+
+		//permukaan meja
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[0]);
+		glDrawElements(GL_TRIANGLES, sizeof(permukaanMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//kaki meja
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.05f, 0.15f, -0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[1]);
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri meja
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.9f, 0.15f, -0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri meja
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.9f, 0.15f, -0.9f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri meja
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.05f, 0.15f, -0.9f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri meja
+
+		//taplak meja
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[2]);
+		glDrawElements(GL_TRIANGLES, sizeof(taplakMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//gelas
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, 0.15001f, -0.3f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[3]);
+		glDrawElements(GL_TRIANGLES, sizeof(gelasIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[10]);
+		glDrawElements(GL_TRIANGLE_FAN, sizeof(alasGelasIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//piring bulat
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-0.4f, 0.126f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[4]);
+		glDrawElements(GL_TRIANGLES, sizeof(piringBulatIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[11]);
+		glDrawElements(GL_TRIANGLE_FAN, sizeof(alasPiringBulatIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//piring oval
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, 0.126f, 0.4f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[9]);
+		glDrawElements(GL_TRIANGLES, sizeof(piringOvalIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[12]);
+		glDrawElements(GL_TRIANGLE_FAN, sizeof(alasPiringOvalIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//piring kotak
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.4f, 0.1005f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[13]);
+		glDrawElements(GL_TRIANGLES, sizeof(piringKotakindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//sendok
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-0.4f, 0.1f, 0.15f));
+		model = glm::scale(model, glm::vec3(0.05f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[5]);
+		glDrawElements(GL_TRIANGLES, sizeof(sendokIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[6]);
+		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//sendok 2
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.15f, 0.1f, 0.4f));
+		model = glm::scale(model, glm::vec3(0.05f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[5]);
+		glDrawElements(GL_TRIANGLES, sizeof(sendokIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[6]);
+		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//sendok 3
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.4f, 0.1f, -0.15f));
+		model = glm::scale(model, glm::vec3(0.05f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[5]);
+		glDrawElements(GL_TRIANGLES, sizeof(sendokIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[6]);
+		glDrawElements(GL_TRIANGLES, sizeof(gagangIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//garpu
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-0.4f, 0.1f, -0.15f));
+		model = glm::scale(model, glm::vec3(0.05f));
+		model = glm::rotate(model, glm::radians(-180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[7]);
+		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[8]);
+		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//garpu 2
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-0.15f, 0.1f, 0.4f));
+		model = glm::scale(model, glm::vec3(0.05f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[7]);
+		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[8]);
+		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		//garpu 3
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.4f, 0.1f, 0.15f));
+		model = glm::scale(model, glm::vec3(0.05f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO[7]);
+		glDrawElements(GL_TRIANGLES, sizeof(garpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(VAO[8]);
+		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+		glViewport(0, 0, windowWidth, windowHeight);
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		glClearColor(0.212f, 0.228f, 0.255f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glEnable(GL_DEPTH_TEST);
+
+		/*shadowScene.Activate();
+		glBindVertexArray(rectVAO);
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, shadowMap);
+		glUniform1i(glGetUniformLocation(shadowScene.ID, "depthMap"), 0);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
+		glBindVertexArray(0);*/
 
 		shaderProgram.Activate();
+		glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "lightProjection"), 1, GL_FALSE, glm::value_ptr(lightProjection));
+
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, shadowMap);
+		glUniform1i(glGetUniformLocation(shaderProgram.ID, "shadowMap"), 1);
 
 		camera.Inputs(window);
 		camera.updateMatrix(45.0f, 0.1f, 100.0f);
