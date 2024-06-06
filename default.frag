@@ -37,28 +37,25 @@ void main()
 {
     float ambient = 0.2f;
 
-    vec3 normals = normalize(normal);
-    vec3 lightDirection = normalize(lightPos - currentPos);
+	vec3 normals = normalize(normal);
+	vec3 lightDirection = normalize(lightPos - currentPos);
 
-    float diffuse = max(dot(normals, lightDirection), 0.0f);
-    float specular = 0.0f;
+	float diffuse = max(dot(normals, lightDirection), 0.0f);
+	float specular = 0.0f;
 
-    if(diffuse != 0.0f)
-    {
-        float specularLight = 0.5f;
-        vec3 viewDirection = normalize(camPos - currentPos);
-        vec3 reflectionDirection = reflect(-lightDirection, normals);
+	if(diffuse != 0.0f)
+	{
+		float specularLight = 0.5f;
+		vec3 viewDirection = normalize(camPos - currentPos);
+		vec3 reflectionDirection = reflect(-lightDirection, normals);
 
-        vec3 halfLightVector = normalize(viewDirection + lightDirection);
+		vec3 halfLightVector = normalize(viewDirection + lightDirection);
 
-        float specAmount = pow(max(dot(normals, halfLightVector), 0.0f), 8);
-        specular = specAmount * specularLight;
-    }
+		float specAmount = pow(max(dot(normals, halfLightVector), 0.0f), 8);
+		float specular = specAmount * specularLight;
+	}
 
-    float shadow = ShadowCalculation(fragPosLightSpace, normals, lightDirection);
+	float shadow = ShadowCalculation(fragPosLightSpace, normals, lightDirection);
 
-    vec4 textureColor = texture(tex0, texturePosition);
-    vec4 lighting = textureColor * lightColor * (ambient + (1.0 - shadow) * (diffuse + specular));
-
-    fragColor = lighting;
+	fragColor = texture(tex0, texturePosition) * lightColor *  (diffuse * (1.0f - shadow) + ambient + specular);
 }

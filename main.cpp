@@ -744,28 +744,28 @@ int main()
 	permukaanMejaTex.Bind();
 	permukaanMejaTex.Unbind();
 
-	texture kakiMejaTex("kaki_meja.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
-	kakiMejaTex.textureUnit(shaderProgram, "tex0", 0);
+	texture kakiMejaTex("kaki_meja.jpg", GL_TEXTURE_2D, GL_TEXTURE0 + 1, GL_RGB, GL_UNSIGNED_BYTE);
+	kakiMejaTex.textureUnit(shaderProgram, "tex0", 1);
 	kakiMejaTex.Bind();
 	kakiMejaTex.Unbind();
 
-	texture taplakMejaTex("taplak_meja.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
-	taplakMejaTex.textureUnit(shaderProgram, "tex0", 0);
+	texture taplakMejaTex("taplak_meja.jpg", GL_TEXTURE_2D, GL_TEXTURE0 + 2, GL_RGB, GL_UNSIGNED_BYTE);
+	taplakMejaTex.textureUnit(shaderProgram, "tex0", 2);
 	taplakMejaTex.Bind();
 	taplakMejaTex.Unbind();
 
-	texture gelasTex("gelas.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
-	gelasTex.textureUnit(shaderProgram, "tex0", 0);
+	texture gelasTex("gelas.jpg", GL_TEXTURE_2D, GL_TEXTURE0 + 3, GL_RGB, GL_UNSIGNED_BYTE);
+	gelasTex.textureUnit(shaderProgram, "tex0", 3);
 	gelasTex.Bind();
 	gelasTex.Unbind();
 
-	texture piringTex("piring.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
-	piringTex.textureUnit(shaderProgram, "tex0", 0);
+	texture piringTex("piring.jpg", GL_TEXTURE_2D, GL_TEXTURE0 + 4, GL_RGB, GL_UNSIGNED_BYTE);
+	piringTex.textureUnit(shaderProgram, "tex0", 4);
 	piringTex.Bind();
 	piringTex.Unbind();
 
-	texture sendokTex("sendok.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
-	sendokTex.textureUnit(shaderProgram, "tex0", 0);
+	texture sendokTex("sendok.jpg", GL_TEXTURE_2D, GL_TEXTURE0 + 5, GL_RGB, GL_UNSIGNED_BYTE);
+	sendokTex.textureUnit(shaderProgram, "tex0", 5);
 	sendokTex.Bind();
 	sendokTex.Unbind();
 
@@ -955,8 +955,8 @@ int main()
 		glBindVertexArray(VAO[8]);
 		glDrawElements(GL_TRIANGLES, sizeof(gagangGarpuindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
-		glViewport(0, 0, windowWidth, windowHeight);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glViewport(0, 0, windowWidth, windowHeight);
 		glClearColor(0.212f, 0.228f, 0.255f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glEnable(GL_DEPTH_TEST);
@@ -972,9 +972,9 @@ int main()
 		shaderProgram.Activate();
 		glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "lightProjection"), 1, GL_FALSE, glm::value_ptr(lightProjection));
 
-		glActiveTexture(GL_TEXTURE0);
+		glActiveTexture(GL_TEXTURE0 + 6);
 		glBindTexture(GL_TEXTURE_2D, shadowMap);
-		glUniform1i(glGetUniformLocation(shaderProgram.ID, "shadowMap"), 0);
+		glUniform1i(glGetUniformLocation(shaderProgram.ID, "shadowMap"), 6);
 
 		camera.Inputs(window);
 		camera.updateMatrix(45.0f, 0.1f, 100.0f);
@@ -984,7 +984,7 @@ int main()
 		glm::mat4 rotationMatrix = glm::mat4(1.0f);
 
 		//permukaan meja
-		permukaanMejaTex.Bind();
+		//permukaanMejaTex.Bind();
 		glUniform1f(scaleUniform, 0.0f);
 		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
 		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(noRotation));
