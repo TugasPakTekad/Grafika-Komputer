@@ -726,7 +726,7 @@ int main()
 
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	glm::vec3 lightPos = glm::vec3(0.0f, 0.45f, 0.0f);
+	glm::vec3 lightPos = glm::vec3(0.0f, 1.0f, 1.0f);
 	glm::mat4 lightModel = glm::mat4(1.0f);
 	lightModel = glm::translate(lightModel, lightPos);
 
@@ -802,23 +802,23 @@ int main()
 	glReadBuffer(GL_NONE);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-	// Matrices needed for the light's perspective
-	glm::mat4 orthgonalProjection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 7.5f);
-	glm::mat4 lightView = glm::lookAt(glm::vec3(0.0f, 3.0f, 0.1f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	glm::mat4 lightProjection = orthgonalProjection * lightView;
-
 	while (!glfwWindowShouldClose(window))
 	{
 		glm::mat4 model = glm::mat4(1.0f);
+
+		// Matrices needed for the light's perspective
+		glm::mat4 orthgonalProjection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 7.5f);
+		glm::mat4 lightView = glm::lookAt(lightPos, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glm::mat4 lightProjection = orthgonalProjection * lightView;
+
+		shadowMapProgram.Activate();
+		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "lightProjection"), 1, GL_FALSE, glm::value_ptr(lightProjection));
 
 		glEnable(GL_DEPTH_TEST);
 
 		glViewport(0, 0, shadowMapWidth, shadowMapHeight);
 		glBindFramebuffer(GL_FRAMEBUFFER, shadowMapFBO);
 		glClear(GL_DEPTH_BUFFER_BIT);
-
-		shadowMapProgram.Activate();
-		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "lightProjection"), 1, GL_FALSE, glm::value_ptr(lightProjection));
 
 		//permukaan meja
 		model = glm::mat4(1.0f);
