@@ -29,7 +29,7 @@ void main()
     pos = rotation * pos; // Apply rotation
     pos = pos + vec4(translation, 0.0); // Apply translation
 
-    fragPosLightSpace = lightProjection * vec4(position, 1.0f);
+    fragPosLightSpace = lightProjection * pos;
 
     gl_Position = camMatrix * pos;
     color = aColor;
