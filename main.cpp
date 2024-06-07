@@ -14,7 +14,7 @@ const int windowWidth = 800;
 const int windowHeight = 800;
 
 const int jumlahObjek = 14;
-const int jumlahIndices = 14; 
+const int jumlahIndices = 14;
 
 //properti Gelas
 const int jumlahIrisan = 50;
@@ -249,7 +249,7 @@ GLfloat gagangGarpu[] =
 	0.4f, 0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.0f,	0.0f,	0.0f,	// 13
 	0.4f, 0.0f,	0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.0f,	0.0f,	0.0f,	// 14
 	0.4f, 0.0f,	-0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	0.0f,	0.0f,	0.0f,	// 15
-	
+
 	// belakang
 	1.8f, 0.1f,	0.2f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,	0.5f,	0.5f,	0.0f,	// 16
 	1.8f, 0.1f,	-0.2f,	1.0f, 0.0f, 0.0f,	1.0f, 1.0f,	0.5f,	0.5f,	0.0f,	// 17
@@ -270,7 +270,7 @@ GLfloat piringKotak[] =
 	0.6f,	0.0f, 0.6f,		1.0f, 1.0f, 1.0f,	0.8f, 1.0f,	-0.6f,	0.95f,	0.0f,	// 1
 	0.6f,	0.0f, -0.6f,	1.0f, 1.0f, 1.0f,	1.0f, 1.0f,	-0.6f,	0.95f,	0.0f,	// 2
 	-0.6f,	0.0f, -0.6f,	1.0f, 1.0f, 1.0f,	1.0f, 0.8f,	0.6f,	0.95f,	0.0f,	// 3
-	
+
 	// Atas
 	-1.6f,	0.7f,	1.6f,	1.0f, 1.0f, 1.0f,	0.3f, 0.3f,	1.8f,	0.0f,	-1.7f,	// 4
 	1.6f,	0.7f,	1.6f,	1.0f, 1.0f, 1.0f,	0.3f, 0.1f,	-1.8f,	0.0f,	-1.7f,	// 5
@@ -392,7 +392,7 @@ GLuint lampuIndices[] =
 	3, 2, 6, 6, 7, 3
 };
 
-void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize ,GLfloat* vboName, GLsizei eboSize,GLuint* eboName)
+void binding(GLuint& VAO, GLuint& VBO, GLuint& EBO, GLsizei vboSize, GLfloat* vboName, GLsizei eboSize, GLuint* eboName)
 {
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -726,7 +726,7 @@ int main()
 
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	glm::vec3 lightPos = glm::vec3(0.0f, 1.0f, 1.0f);
+	glm::vec3 lightPos = glm::vec3(0.0f, 0.5f, 2.0f);
 	glm::mat4 lightModel = glm::mat4(1.0f);
 	lightModel = glm::translate(lightModel, lightPos);
 
@@ -807,7 +807,7 @@ int main()
 		glm::mat4 model = glm::mat4(1.0f);
 
 		// Matrices needed for the light's perspective
-		glm::mat4 orthgonalProjection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 7.5f);
+		glm::mat4 orthgonalProjection = glm::ortho(-0.6f, 0.6f, -0.6f, 0.6f, 0.1f, 7.5f);
 		glm::mat4 lightView = glm::lookAt(lightPos, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glm::mat4 lightProjection = orthgonalProjection * lightView;
 
@@ -822,7 +822,6 @@ int main()
 
 		//permukaan meja
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		glBindVertexArray(VAO[0]);
 		glDrawElements(GL_TRIANGLES, sizeof(permukaanMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
@@ -848,7 +847,6 @@ int main()
 
 		//taplak meja
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(glGetUniformLocation(shadowMapProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		glBindVertexArray(VAO[2]);
 		glDrawElements(GL_TRIANGLES, sizeof(taplakMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
@@ -961,13 +959,13 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glEnable(GL_DEPTH_TEST);
 
-		/*shadowScene.Activate();
+		shadowScene.Activate();
 		glBindVertexArray(rectVAO);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, shadowMap);
 		glUniform1i(glGetUniformLocation(shadowScene.ID, "depthMap"), 0);
-		glDrawArrays(GL_TRIANGLES, 0, 6);
-		glBindVertexArray(0);*/
+		//glDrawArrays(GL_TRIANGLES, 0, 6);
+		glBindVertexArray(0);
 
 		shaderProgram.Activate();
 		glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "lightProjection"), 1, GL_FALSE, glm::value_ptr(lightProjection));
@@ -984,7 +982,9 @@ int main()
 		glm::mat4 rotationMatrix = glm::mat4(1.0f);
 
 		//permukaan meja
-		//permukaanMejaTex.Bind();
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, permukaanMejaTex.ID);
+		glUniform1i(glGetUniformLocation(shaderProgram.ID, "tex0"), 0);
 		glUniform1f(scaleUniform, 0.0f);
 		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
 		glUniformMatrix4fv(rotationUniform, 1, GL_FALSE, glm::value_ptr(noRotation));
@@ -992,7 +992,9 @@ int main()
 		glDrawElements(GL_TRIANGLES, sizeof(permukaanMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		//kaki meja
-		kakiMejaTex.Bind();
+		glActiveTexture(GL_TEXTURE0 + 1);
+		glBindTexture(GL_TEXTURE_2D, kakiMejaTex.ID);
+		glUniform1i(glGetUniformLocation(shaderProgram.ID, "tex0"), 1);
 		glUniform3f(translationUniform, 0.05f, 0.15f, -0.05f);
 		glBindVertexArray(VAO[1]);
 		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri meja
@@ -1004,13 +1006,18 @@ int main()
 		glDrawElements(GL_TRIANGLES, sizeof(kakiMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);//kaki kiri belakang
 
 		//Taplak meja
+		glActiveTexture(GL_TEXTURE0 + 2);
+		glBindTexture(GL_TEXTURE_2D, taplakMejaTex.ID);
+		glUniform1i(glGetUniformLocation(shaderProgram.ID, "tex0"), 2);
 		taplakMejaTex.Bind();
 		glUniform3f(translationUniform, 0.0f, 0.0f, 0.0f);
 		glBindVertexArray(VAO[2]);
 		glDrawElements(GL_TRIANGLES, sizeof(taplakMejaIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		//gelas
-		gelasTex.Bind();
+		glActiveTexture(GL_TEXTURE0 + 3);
+		glBindTexture(GL_TEXTURE_2D, gelasTex.ID);
+		glUniform1i(glGetUniformLocation(shaderProgram.ID, "tex0"), 3);
 		glUniform1f(scaleUniform, -0.5f);
 		glUniform3f(translationUniform, 0.0f, 0.15001f, -0.3f);
 		glBindVertexArray(VAO[3]);
@@ -1019,7 +1026,9 @@ int main()
 		glDrawElements(GL_TRIANGLE_FAN, sizeof(alasGelasIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		//piringBulat
-		piringTex.Bind();
+		glActiveTexture(GL_TEXTURE0 + 4);
+		glBindTexture(GL_TEXTURE_2D, piringTex.ID);
+		glUniform1i(glGetUniformLocation(shaderProgram.ID, "tex0"), 4);
 		glUniform1f(scaleUniform, 0.0f);
 		glUniform3f(translationUniform, -0.4f, 0.126f, 0.0f);
 		glBindVertexArray(VAO[4]);
@@ -1041,7 +1050,9 @@ int main()
 		glDrawElements(GL_TRIANGLES, sizeof(piringKotakindices) / sizeof(int), GL_UNSIGNED_INT, 0);
 
 		//sendok;
-		sendokTex.Bind();
+		glActiveTexture(GL_TEXTURE0 + 5);
+		glBindTexture(GL_TEXTURE_2D, sendokTex.ID);
+		glUniform1i(glGetUniformLocation(shaderProgram.ID, "tex0"), 5);
 		glUniform1f(scaleUniform, -0.95f);
 		glUniform3f(translationUniform, -0.4f, 0.1f, 0.15f);
 		rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
