@@ -967,7 +967,7 @@ int main()
 		//glDrawArrays(GL_TRIANGLES, 0, 6);
 		glBindVertexArray(0);
 
-		shaderProgram.Activate();
+		shaderProgram.Activate(); 
 		glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "lightProjection"), 1, GL_FALSE, glm::value_ptr(lightProjection));
 
 		glActiveTexture(GL_TEXTURE0 + 6);

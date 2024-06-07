@@ -57,7 +57,7 @@ float ShadowCalculation(vec4 fragPosLightSpace, vec3 normal, vec3 lightDirection
 
 void main()
 {
-    float ambient = 0.2f;
+    float ambient = 0.4f;
 
 	vec3 normals = normalize(normal);
 	vec3 lightDirection = normalize(lightPos - currentPos);
