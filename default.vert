@@ -26,8 +26,8 @@ void main()
     currentPos = vec3(vec4(position, 1.0f));
 
     vec4 pos = vec4(position + position * scale, 1.0);
-    pos = rotation * pos; // Apply rotation
-    pos = pos + vec4(translation, 0.0); // Apply translation
+    pos = rotation * pos;
+    pos = pos + vec4(translation, 0.0);
 
     fragPosLightSpace = lightProjection * pos;
 

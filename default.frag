@@ -17,22 +17,20 @@ uniform vec4 lightColor;
 uniform vec3 lightPos;
 uniform vec3 camPos;
 
-// Function to calculate shadow factor using Percentage Closer Filtering (PCF)
 float ShadowCalculation(vec4 fragPosLightSpace, vec3 normal, vec3 lightDirection)
 {
-    // Perform perspective divide
+    // pembagian perspektif
     vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
-    // Transform to [0,1] range
+    // Transform ke [0,1] range
     projCoords = projCoords * 0.5 + 0.5;
     
-    // Check if the projected coordinates are outside the [0, 1] range
+    // cek jika projCoords > 1.0 range
     if(projCoords.z > 1.0)
         return 0.0;
 
-    // Get depth of current fragment from light's perspective
     float currentDepth = projCoords.z;
 
-    // Bias to avoid shadow acne
+    // Bias untuk menghindari shadow acne
     float bias = max(0.005 * (1.0 - dot(normal, lightDirection)), 0.005);
 
     // PCF kernel size
@@ -48,7 +46,7 @@ float ShadowCalculation(vec4 fragPosLightSpace, vec3 normal, vec3 lightDirection
     }
     shadow /= 9.0; // Averaging the 3x3 kernel results
 
-    // Clamp shadow to [0,1]
+    // Clamp shadow ke [0,1]
     shadow = clamp(shadow, 0.0, 1.0);
 
     return shadow;

@@ -29,9 +29,9 @@ const float tinggiPiring = 0.05f;
 const int latDivs = 18;
 const int lonDivs = 36;
 
+//rect untuk shadow map
 float rectangleVertices[] =
 {
-	// Coords    // texCoords
 	 1.0f, -1.0f,  1.0f, 0.0f,
 	-1.0f, -1.0f,  0.0f, 0.0f,
 	-1.0f,  1.0f,  0.0f, 1.0f,
@@ -612,12 +612,10 @@ int main()
 			float y = radiusY * cosf(phi);
 			float z = radiusZ * sinf(phi) * sinf(theta);
 
-			// Position (replace with actual calculations)
 			sendok[vertexIndex++] = x;
 			sendok[vertexIndex++] = y;
 			sendok[vertexIndex++] = z;
 
-			// Color (this is an example; use your actual color values)
 			sendok[vertexIndex++] = 1.0f; // Red
 			sendok[vertexIndex++] = 0.5f; // Green
 			sendok[vertexIndex++] = 0.0f; // Blue
@@ -631,7 +629,6 @@ int main()
 			sendok[vertexIndex++] = 0.2f;
 			sendok[vertexIndex++] = 0.0f;
 
-			// Calculate indices for the quad's two triangles
 			if (lat < latDivs / 2 && lon < lonDivs) {
 				int nextLat = lonDivs + 1;
 				sendokIndices[indexIndex++] = lat * nextLat + lon;
@@ -645,7 +642,6 @@ int main()
 		}
 	}
 
-	// Define indices for handle (a simple rectangle)
 	for (int i = 0; i < 4; i++) {
 		int j = (i + 1) % 4;
 		sendokIndices[indexIndex++] = latDivs * (lonDivs + 1) + i;
@@ -692,6 +688,7 @@ int main()
 	//piringKotak
 	binding(VAO[13], VBO[13], EBO[13], sizeof(piringKotak), piringKotak, sizeof(piringKotakindices), piringKotakindices);
 
+	//rectangle untuk  visual debug shadow map
 	unsigned int rectVAO, rectVBO;
 	glGenVertexArrays(1, &rectVAO);
 	glGenBuffers(1, &rectVBO);
@@ -777,13 +774,13 @@ int main()
 
 	Camera camera(windowWidth, windowHeight, glm::vec3(0.0f, 0.0f, 2.0f));
 
-	// Framebuffer for Shadow Map
-	unsigned int shadowMapFBO;
+	// Framebuffer shadow map
+	GLuint shadowMapFBO;
 	glGenFramebuffers(1, &shadowMapFBO);
 
-	// Texture for Shadow Map FBO
-	unsigned int shadowMapWidth = 1024, shadowMapHeight = 1024;
-	unsigned int shadowMap;
+	// Tekstur shadow map
+	GLuint shadowMapWidth = 1024, shadowMapHeight = 1024;
+	GLuint shadowMap;
 	glGenTextures(1, &shadowMap);
 	glBindTexture(GL_TEXTURE_2D, shadowMap);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, shadowMapWidth, shadowMapHeight, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
@@ -791,13 +788,11 @@ int main()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
-	// Prevents darkness outside the frustrum
 	float clampColor[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 	glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, clampColor);
 
 	glBindFramebuffer(GL_FRAMEBUFFER, shadowMapFBO);
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, shadowMap, 0);
-	// Needed since we don't touch the color buffer
 	glDrawBuffer(GL_NONE);
 	glReadBuffer(GL_NONE);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -806,7 +801,7 @@ int main()
 	{
 		glm::mat4 model = glm::mat4(1.0f);
 
-		// Matrices needed for the light's perspective
+		//Matrix perspektif chaya
 		glm::mat4 orthgonalProjection = glm::ortho(-0.6f, 0.6f, -0.6f, 0.6f, 0.1f, 7.5f);
 		glm::mat4 lightView = glm::lookAt(lightPos, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glm::mat4 lightProjection = orthgonalProjection * lightView;
@@ -1120,8 +1115,11 @@ int main()
 	glDeleteBuffers(jumlahObjek, VBO);
 	glDeleteBuffers(jumlahIndices, EBO);
 	glDeleteVertexArrays(1, &lightVAO);
+	glDeleteVertexArrays(1, &rectVAO);
 	glDeleteBuffers(1, &lightVBO);
 	glDeleteBuffers(1, &lightEBO);
+	glDeleteBuffers(1, &shadowMapFBO);
+	glDeleteBuffers(1, &rectVBO);
 	permukaanMejaTex.Delete();
 	kakiMejaTex.Delete();
 	taplakMejaTex.Delete();
@@ -1129,6 +1127,7 @@ int main()
 	piringTex.Delete();
 	sendokTex.Delete();
 	shaderProgram.Delete();
+	glDeleteTextures(1, &shadowMap);
 	glfwTerminate();
 	return 0;
 }
